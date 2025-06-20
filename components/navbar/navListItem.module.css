@@ -1,0 +1,26 @@
+.desktop_navlist_item:hover {
+  > .desktop_navlist_item_indicator {
+    opacity: 0.5;
+  }
+}
+
+.desktop_navlist_item_indicator {
+  position: absolute;
+  width: 150%;
+  height: 98%;
+  top: 0;
+  right: -25%;
+  background-image: url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExd29jd2wwZGx5OWRmcW85NTl3aTRlZDRwODFlZ2tuNDdwZXk5ZjdoZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlLP5fowu9vAbUk/giphy.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  filter: brightness(1.3);
+  opacity: 0;
+  mix-blend-mode: color-dodge;
+  transition: opacity 0.4s ease-in;
+}
+
+.desktop_navlist_item_indicator.active {
+  opacity: 0.5;
+}

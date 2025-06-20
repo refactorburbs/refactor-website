@@ -1,0 +1,153 @@
+.application_card {
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: var(--color-primary);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.applicant_info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.applicant_name {
+  color: white;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.job_title {
+  margin: 0;
+  color: #bebebe;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  >.briefcase_icon {
+    color: white;
+  }
+}
+
+.contact_info {
+  margin-bottom: 1rem;
+}
+
+.contact_item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.email_link {
+  color: var(--color-secondary);
+}
+
+.email_link:hover {
+  text-decoration: underline;
+}
+
+.star_icon {
+  font-size: var(--medium);
+  color: gray;
+  cursor: pointer;
+  >.starred {
+    color: var(--color-secondary);
+  }
+}
+.star_icon:hover {
+  color: rgb(255, 208, 120);
+}
+
+.star_icon.starred {
+  color: var(--color-secondary);
+}
+
+.links_section {
+  margin-bottom: 1rem;
+}
+
+.links_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.link_item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  text-align: center;
+  justify-content: center;
+}
+
+.resume_link {
+  background-color: #dc3545;
+  color: white;
+}
+
+.resume_link:hover {
+  background-color: #c82333;
+}
+
+.portfolio_link {
+  background-color: #23ac77;
+  color: white;
+}
+
+.portfolio_link:hover {
+  background-color: #137a53;
+}
+
+.linkedin_link {
+  background-color: #0077b5;
+  color: white;
+}
+
+.linkedin_link:hover {
+  background-color: #005885;
+}
+
+.other {
+  color: #bebebe;
+}
+
+.application_meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #bebebe;
+  border-top: 1px solid gray;
+  padding-top: 0.75rem;
+}
+
+.trash_icon {
+  font-size: var(--x-small);
+  color: indianred;
+  cursor: pointer;
+}
+
+.trash_icon:hover {
+  color: rgb(214, 108, 108);
+}

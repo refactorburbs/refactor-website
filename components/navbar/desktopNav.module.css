@@ -1,0 +1,30 @@
+.desktop_navbar {
+  display: flex;
+  align-items: center;
+  font-size: var(--small);
+  font-weight: 400;
+}
+
+.desktop_navbar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.list_item_wrapper {
+  position: relative;
+  height: 60px;
+  width: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .desktop_navbar {
+    display: none;
+  }
+}

@@ -1,0 +1,51 @@
+.steam_button {
+  padding: 0.3rem 1rem;
+  width: max-content;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  > a {
+    display: flex;
+    gap: 0.5rem;
+    color: #111;
+  }
+  transition: all 0.3s ease;
+}
+
+.steam_button:hover {
+  background-color: black;
+  > a {
+    color: white;
+    text-shadow: 0px 0px 20px #005dba;
+  }
+}
+
+.steam_icon {
+  font-size: xxx-large;
+}
+
+.steam_button_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  > span {
+    font-weight: 400;
+  }
+}
+
+.spaced_letter_text {
+  letter-spacing: 2px;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1024px) {
+  .steam_button_text,
+  .spaced_letter_text {
+    font-size: medium;
+  }
+  .steam_icon {
+    font-size: xx-large;
+  }
+}

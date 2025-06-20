@@ -1,0 +1,91 @@
+.job_form_wrapper {
+  padding: 2rem;
+}
+
+.form_header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid white;
+}
+
+.job_form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form_group label,
+.array_label {
+  color: var(--color-secondary);
+}
+
+.form_group input,
+.form_group textarea,
+.array_item input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form_group input:focus,
+.form_group textarea:focus,
+.array_item input:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+}
+
+.form_group input.error,
+.form_group textarea.error,
+.array_item input.error {
+  outline: none;
+  border-color: indianred;
+  background-color: transparent;
+}
+
+.form_group textarea {
+  background-color: transparent;
+  color: white;
+}
+
+.error_message {
+  color: indianred;
+  font-size: var(--x-small);
+}
+
+.submit_button {
+  align-self: flex-end;
+}
+
+.submit_button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.array_field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.add_btn,
+.remove_btn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.array_item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}

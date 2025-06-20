@@ -1,0 +1,92 @@
+.scroll_element {
+  height: -webkit-fill-available;
+  height: 100%;
+  /* height: max-content; */
+}
+
+/* scroll_start_* is where the element begins (offscreen or hidden) */
+/* scroll_in_* is the "visible" position (fully opaque) */
+/* scroll_out_* is where it exits/floats away */
+.scroll_start_up,
+.scroll_in_up,
+.scroll_start_down,
+.scroll_in_down,
+.scroll_start_right,
+.scroll_in_right,
+.scroll_start_left,
+.scroll_in_left {
+  transition: all 0.5s ease;
+  will-change: transform, opacity;
+}
+
+.scroll_out_up,
+.scroll_out_down,
+.scroll_out_right,
+.scroll_out_left {
+  transition: all 0.5s ease;
+  will-change: transform, opacity;
+}
+
+/* ==== DIRECTION: UP ==== */
+.scroll_start_up {
+  opacity: 0;
+  transform: translateY(30px); /* starts below */
+}
+
+.scroll_in_up {
+  opacity: 1;
+  transform: translateY(0); /* center */
+}
+
+.scroll_out_up {
+  opacity: 0;
+  transform: translateY(-70px);
+}
+
+/* ==== DIRECTION: DOWN ==== */
+.scroll_start_down {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.scroll_in_down {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll_out_down {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* ==== DIRECTION: LEFT ==== */
+.scroll_start_left {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.scroll_in_left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll_out_left {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+/* ==== DIRECTION: RIGHT ==== */
+.scroll_start_right {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.scroll_in_right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll_out_right {
+  opacity: 0;
+  transform: translateX(50px);
+}

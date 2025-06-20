@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+/**
+ * Successfully authenticated as rkmiller131@gmail.com.
+ * Let's set up your Prisma Postgres database!
+ * ✔ Select your region: us-west-1 - US West (N. California)
+ * ✔ Enter a project name: Refactor Website Admin
+ * ✔ Success! Your Prisma Postgres database is ready ✅
+ * We created an initial schema.prisma file and a .env file with your DATABASE_URL environment variable already set.
+ * --- Next steps ---
+ * Go to https://pris.ly/ppg-init for detailed instructions.
+ * 1. Define your database schema
+ * Open the schema.prisma file and define your first models. Check the docs if you need inspiration: https://pris.ly/ppg-init.
+ * 2. Apply migrations
+ * Run the following command to create and apply a migration:
+ * npx prisma migrate dev --name init
+ * 3. Manage your data
+ * View and edit your data locally by running this command:
+ * npx prisma studio
+ * ...or online in Console:
+ * https://console.prisma.io/cmbjqfv1r00l8bgi7xkojc3u7/cmbjqh3p900libgi70eyhbc6i/cmbjqh3p900ljbgi7jfzh9rg4/studio
+ * 4. Send queries from your app
+ * To access your database from a JavaScript/TypeScript app, you need to use Prisma ORM. Go here for step-by-step instructions: https://pris.ly/ppg-init
+ */
+
+// More instructions on setting up schema and seeding the db: https://www.prisma.io/docs/guides/nextjs
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SteamGame {
+  id        Int      @id @default(autoincrement())
+  steamId   Int      @unique
+  name      String
+  storePage String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model JobPosting {
+  id               Int              @id @default(autoincrement())
+  title            String
+  summary          String
+  tags             String[]
+  aboutTheJob      String[]
+  experience       String[]
+  responsibilities String[]
+  requirements     String[]
+  pluses           String[]
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  JobApplication   JobApplication[] // Virtual relation field for FK in JobApplication
+}
+
+model JobApplication {
+  id           Int        @id @default(autoincrement())
+  firstName    String
+  lastName     String
+  email        String     @unique
+  portfolio    String?
+  linkedIn     String?
+  other        String?
+  resume       String
+  starred      Boolean    @default(false)
+  jobPostingId Int
+  jobPosting   JobPosting @relation(fields: [jobPostingId], references: [id])
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model User {
+  id              Int        @id @default(autoincrement())
+  name            String
+  email           String     @unique
+  hashedPassword  String
+}

@@ -1,0 +1,2 @@
+export const STEAM_DETAILS_BASE_URL = "https://store.steampowered.com/api/appdetails?appids="; // add the id
+export const STEAM_REVIEWS_BASE_URL = "https://store.steampowered.com/appreviews/"; // add the id and then ?json=1

@@ -1,0 +1,46 @@
+.apply_page {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 10%;
+  padding: 2rem 3rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 1rem 1rem;
+}
+
+.apply_header_wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.apply_header {
+  > h1 {
+    font-size: var(--xx-large);
+    margin-bottom: 1rem;
+  }
+}
+
+.refactor_logo {
+  width: 150px;
+  height: auto;
+}
+
+.apply_summary {
+  color: gray;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 700px) {
+  .apply_page {
+    margin: 1.5rem 5%;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--color-primary);
+    border-radius: 1rem 1rem;
+  }
+  .apply_header_wrapper {
+    flex-direction: column-reverse;
+  }
+  .apply_header {
+    margin-top: 1rem;
+  }
+}

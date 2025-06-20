@@ -1,0 +1,22 @@
+.games {
+  background: var(--section-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.offset_divider {
+  margin-top: -5px;
+  width: 100%;
+}
+
+.game_cards_list_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+.spacer {
+  margin-bottom: 0.25rem;
+}

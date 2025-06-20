@@ -1,0 +1,25 @@
+.contact {
+  background: var(--section-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.offset_divider {
+  margin-top: -5px;
+}
+
+.contact_content_wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+  align-items: stretch;
+}
+
+@media screen and (max-width: 1100px) {
+  .contact_content_wrapper {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}

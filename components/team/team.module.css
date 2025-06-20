@@ -1,0 +1,129 @@
+.team {
+  position: relative;
+  background: var(--section-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.offset_divider {
+  position: absolute;
+  top: -65px;
+  left: 0;
+  width: 100%;
+}
+
+.team_content {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 2rem;
+  height: 600px;
+}
+
+.team_description {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+.team_text {
+  width: 85%;
+}
+
+.team_text p {
+  font-size: x-large;
+  line-height: 1.3;
+  margin: 0;
+  text-align: right;
+}
+
+.team_video {
+  position: relative;
+  aspect-ratio: 16/9; /* Maintains 16:9 ratio */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.team_video iframe {
+  border: none;
+}
+
+.team_image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  height: 600px;
+}
+
+.responsive_photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintains aspect ratio while filling container */
+  object-position: center;
+  display: block;
+}
+
+@media screen and (max-width: 1250px) {
+  .team_content {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+  .team_description {
+    flex-direction: row;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .team_text {
+    width: 50%;
+  }
+  .team_image {
+    height: 550px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .team_text p {
+    font-size: large;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .team_description {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  .team_text {
+    width: 100%;
+    > p {
+      text-align: center;
+    }
+  }
+  .team_image {
+    height: 50vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .team_content {
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  .team_image {
+    padding: 0.5rem;
+  }
+  .team_text p {
+    font-size: medium;
+  }
+  .team_video iframe {
+    width: 269px;
+    height: 151px;
+  }
+}

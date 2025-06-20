@@ -1,0 +1,90 @@
+.applications_wrapper {
+  padding: 1rem;
+}
+
+.applications_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 2rem;
+}
+
+.header_info h3 {
+  margin-bottom: 0.5rem;
+}
+
+.application_stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.star_icon {
+  font-size: var(--x-small);
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter_label {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.job_filter_select {
+  padding: 0.3rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  min-width: 200px;
+}
+
+.job_filter_select:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.starred_filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.starred_filter:hover {
+  color: var(--color-secondary);
+}
+
+.stars_toggled {
+  color: var(--color-secondary);
+}
+
+.stars_not_toggled {
+  color: gray;
+}
+
+.filter_results {
+  margin-bottom: 1rem;
+}
+
+.filter_info {
+  color: gray;
+  font-style: italic;
+  font-size: 0.9rem;
+}

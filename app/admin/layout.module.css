@@ -1,0 +1,71 @@
+.admin_layout_page {
+  display: flex;
+  background-color: var(--color-primary);
+  height: 100svh;
+  overflow: hidden;
+}
+
+.admin_navigation_wrapper {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #14161D;
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.25);
+}
+
+.refactor_logo {
+  width: 150px;
+  height: auto;
+}
+
+.admin_navlist {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.dashboard {
+  width: 100%;
+  padding: 1rem 3rem;
+}
+
+.dashboard_header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user_info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.logout_button {
+  font-size: medium;
+}
+
+.main_content_wrapper {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: #14161D;
+  border-radius: 10px 10px 0px 0px;
+  height: calc(100% - 4rem);
+  overflow-y: auto;
+}
+
+.main_content_wrapper::-webkit-scrollbar {
+  width: 4px;
+}
+
+.main_content_wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main_content_wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 3px;
+}

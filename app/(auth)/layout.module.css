@@ -1,0 +1,26 @@
+.auth_layout_page {
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+}
+
+.auth_card {
+  border-radius: 10px;
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+
+.card_branding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: black;
+  color: white;
+  border-radius: 0 8px 8px 0;
+}

@@ -1,0 +1,63 @@
+.admin_game_card {
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin_game_card a {
+  color: var(--color-secondary);
+}
+
+.admin_game_card a:hover {
+  color: gray;
+}
+
+.game_header_image {
+  width: 276px;
+  height: 129px;
+}
+
+.game_identification {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.game_name {
+  font-size: var(--medium);
+}
+
+.game_info,
+.game_links,
+.game_buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.game_buttons {
+  gap: 2rem;
+  margin-right: 1rem;
+}
+
+.edit_icon,
+.trash_icon {
+  font-size: var(--large);
+  cursor: pointer;
+}
+
+.edit_icon:hover,
+.trash_icon:hover {
+  opacity: 0.75;
+}
+
+.edit_icon {
+  color: yellowgreen;
+}
+
+.trash_icon {
+  color: indianred;
+}

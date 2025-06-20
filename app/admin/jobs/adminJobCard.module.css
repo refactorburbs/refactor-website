@@ -1,0 +1,45 @@
+.admin_job_card {
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.job_header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  > span {
+    color: var(--color-secondary);
+  }
+  > small {
+    color: gray;
+  }
+}
+
+.job_buttons {
+  display: flex;
+  gap: 2rem;
+  margin-right: 1rem;
+}
+
+.edit_icon,
+.trash_icon {
+  font-size: var(--large);
+  cursor: pointer;
+}
+
+.edit_icon:hover,
+.trash_icon:hover {
+  opacity: 0.75;
+}
+
+.edit_icon {
+  color: yellowgreen;
+}
+
+.trash_icon {
+  color: indianred;
+}

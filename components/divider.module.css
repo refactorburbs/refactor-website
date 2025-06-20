@@ -1,0 +1,81 @@
+.geo_pattern {
+  position: absolute;
+  background: url("/geo-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.divider_bg {
+  background: linear-gradient(#FFC000, #FFB100);
+}
+
+.divider, .slanted_divider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  position: relative;
+  height: 50px;
+  z-index: 3;
+}
+
+.divider.underlined,
+.slanted_divider_wrapper.underlined {
+  border-bottom: 2px solid white;
+}
+
+.divider {
+  > h2 {
+    color: black;
+    font-weight: 200;
+  }
+}
+
+.slanted_divider_wrapper {
+  position: relative;
+  > h2 {
+    color: var(--color-secondary);
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+  }
+}
+
+.slanted_divider {
+  margin-top: 2rem;
+  clip-path: polygon(51% 66%, 54% 0, 100% 0, 100% 100%, 0 100%, 0 66%);
+}
+
+@media screen and (max-width: 1024px) {
+  .divider, .slanted_divider {
+    padding: 0 50px;
+  }
+  .slanted_divider_wrapper {
+    > h2 {
+      left: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .geo_pattern {
+    background-size: cover;
+  }
+  .divider, .slanted_divider {
+    padding: 0 20px;
+    height: 40px;
+  }
+  .slanted_divider_wrapper {
+    > h2 {
+      left: 20px;
+    }
+  }
+  .slanted_divider {
+    clip-path: polygon(51% 66%, 60% 0, 100% 0, 100% 100%, 0 100%, 0 66%);
+  }
+}

@@ -1,0 +1,17 @@
+.rotating_hero_text_wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+.rotating_hero_text {
+  text-shadow: 1px 1px 4px black;
+}
+
+.dynamic_word {
+  color: var(--color-secondary);
+}

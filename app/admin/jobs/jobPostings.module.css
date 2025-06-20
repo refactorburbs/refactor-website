@@ -1,0 +1,35 @@
+.jobs_page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.jobs_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add_button {
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid var(--color-secondary);
+  font-size: var(--medium);
+  color: var(--color-secondary);
+  border-radius: 8px;
+  transition: all 0.5s ease;
+}
+
+.add_button:hover {
+  color: white;
+  background-color: var(--color-primary);
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--color-secondary);
+}
+
+.current_jobs_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
