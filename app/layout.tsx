@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       { //@TODO update this and make it a webp
-        url: "https://refactorgames.com/social-image.jpg",
+        url: "/social-image.jpg",
         width: 1200,
         height: 630,
         type: "image/jpeg",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     site: "@refactorgames",
     title: "Refactor Games",
     description: "We make experimental, emergent sports video games.",
-    images: ["https://refactorgames.com/social-image.jpg"],
+    images: ["/social-image.jpg"],
   },
 
   // SEO
