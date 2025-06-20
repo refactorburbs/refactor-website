@@ -1,6 +1,6 @@
 "use server";
 
-import { ADMIN_CODE } from "@/lib/constants/general.constants";
+import { ADMIN_CODE } from "@/lib/constants/auth.constants";
 import prisma from "@/lib/prisma";
 import { AuthFormState, ContactFormState, GameFormState, JobPostingFormState, SubmitJobApplicationActionState } from "@/lib/types/forms.types";
 import { fetchSteamGames } from "@/lib/utils/fetch.utils";

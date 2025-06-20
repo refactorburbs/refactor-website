@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getUser } from "@/lib/dal";
 import { logout } from "@/app/actions";
-import { ADMIN_ROUTES } from "@/lib/constants/admin.constants";
+import { ADMIN_ROUTES } from "@/lib/constants/navigation.constants";
 import NavListItem from "./NavListItem";
 
 import styles from "./layout.module.css";

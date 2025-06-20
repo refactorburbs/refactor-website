@@ -1,4 +1,4 @@
-import { ABOUT_FOOTBALLSIM_CHARACTERS } from "@/lib/constants/images.constants";
+import { ASSETS } from "@/lib/constants/assets.constants";
 import ScrollAnimatedElement from "../ScrollAnimatedElement";
 import DesktopAbout from "./DesktopAbout";
 import MobileAbout from "./MobileAbout";
@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import styles from "./about.module.css";
 
-const footballsimCharacters = ABOUT_FOOTBALLSIM_CHARACTERS;
+const footballsimCharacters = ASSETS.IMAGES.ABOUT.footballsimCharacters;
 
 export default function About () {
   return (

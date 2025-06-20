@@ -1,7 +1,7 @@
 import {
   STEAM_DETAILS_BASE_URL,
   STEAM_REVIEWS_BASE_URL
-} from "../constants/games.constants";
+} from "../constants/api.constants";
 import prisma from "../prisma";
 import {
   SteamGameData,

@@ -1,4 +1,4 @@
-import { FOOTBALLSIM_HEAD, FOOTBALLSIM_HELMET } from "@/lib/constants/images.constants";
+import { ASSETS } from "@/lib/constants/assets.constants";
 import AnimatedHeader from "../AnimatedHeader";
 import Image from "next/image";
 import ScrollAnimatedElement from "../ScrollAnimatedElement";
@@ -7,8 +7,8 @@ import JobCardList from "./JobCardList";
 
 import styles from "./careers.module.css";
 
-const footballSimHead = FOOTBALLSIM_HEAD;
-const footballSimHelmet = FOOTBALLSIM_HELMET;
+const footballSimHead = ASSETS.IMAGES.CAREERS.footballsimHead;
+const footballSimHelmet = ASSETS.IMAGES.CAREERS.footballsimHelmet;
 
 export default async function Careers() {
   const jobPosts = await getJobPosts();

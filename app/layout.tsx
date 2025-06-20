@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     images: [
-      { //@TODO update this and make it a webp
+      { //@TODO update this to cdn full link and make it a webp
         url: "/social-image.jpg",
         width: 1200,
         height: 630,

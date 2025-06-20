@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Squash as Hamburger } from "hamburger-react";
-import { NAV_ROUTES } from "@/lib/constants/home.constants";
+import { NAV_ROUTES } from "@/lib/constants/navigation.constants";
 
 import styles from "./mobileNav.module.css";
 

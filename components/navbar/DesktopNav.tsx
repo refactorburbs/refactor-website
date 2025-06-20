@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { NAV_ROUTES } from "@/lib/constants/home.constants";
+import { NAV_ROUTES } from "@/lib/constants/navigation.constants";
 import { NavRoute } from "@/lib/types/navigation.types";
 import NavListItem from "./NavListItem";
 

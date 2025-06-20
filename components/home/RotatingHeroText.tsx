@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { HERO_TEXT } from "@/lib/constants/home.constants";
+import { HERO_TEXT } from "@/lib/constants/content.constants";
 
 import styles from "./rotatingHeroText.module.css";
 
