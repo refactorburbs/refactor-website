@@ -8,15 +8,23 @@ import {
   SteamGameResponseData,
   SteamGameReviewSummary
 } from "../types/games.types";
+import { forceHttps, scrubHTMLEncodedString } from "./general.utils";
 
-function forceHttps(url: string): string {
-  if (url.startsWith("http://")) {
-    return url.replace("http://", "https://");
-  }
-  return url;
-}
-
-async function fetchSteamGames(): Promise<SteamGameData[]> {
+/**
+ * Fetches a list of games from the local database and enriches each with details from the Steam API.
+ *
+ * - Queries local game data from Prisma.
+ * - Makes a request to the Steam Storefront API for additional metadata.
+ * - Also fetches user review summaries for each game.
+ * - Replaces HTTP with HTTPS for media URLs to prevent mixed content issues.
+ * - Scrubs HTML from long descriptions for clean text rendering.
+ * - Applies caching via `next.revalidate` (1 hour).
+ *
+ * If the Steam API call fails for a particular game, the original local game data is returned for that entry.
+ *
+ * @returns A promise that resolves to an array of `SteamGameData`, including enriched metadata and review summaries.
+ */
+export async function fetchSteamGames(): Promise<SteamGameData[]> {
   const steamGamesData = await prisma.steamGame.findMany();
 
   const results: SteamGameData[] = await Promise.all(
@@ -53,6 +61,17 @@ async function fetchSteamGames(): Promise<SteamGameData[]> {
   return results;
 }
 
+/**
+ * Fetches and calculates a summary of user reviews for a given game from the Steam API.
+ *
+ * Extracts total positive reviews, total reviews, percentage of positive reviews,
+ * and a human-readable review score description.
+ *
+ * If the API call fails, returns a fallback summary with zeroed values and "No Reviews".
+ *
+ * @param gameId - The numeric Steam ID of the game to fetch reviews for.
+ * @returns A promise that resolves to a `SteamGameReviewSummary` object containing review statistics.
+ */
 async function fetchSteamReviewsForGame(gameId: number): Promise<SteamGameReviewSummary> {
   try {
     const response = await fetch(`${STEAM_REVIEWS_BASE_URL}${gameId}?json=1`);
@@ -78,26 +97,4 @@ async function fetchSteamReviewsForGame(gameId: number): Promise<SteamGameReview
       reviewScoreDesc: "No Reviews",
     };
   }
-}
-
-function scrubHTMLEncodedString(string: string): string {
-  const parsed = JSON.parse(JSON.stringify(string));
-  const decoded = parsed.replace(/<[^>]*>/g, ''); // remove HTML tags
-  // Decode common HTML entities that should be symbols in the string
-  const entityMap: Record<string, string> = {
-    '&amp;': '&',
-    '&lt;': '<',
-    '&gt;': '>',
-    '&quot;': '"',
-    '&#39;': "'",
-    '&nbsp;': ' '
-  };
-  const decodedEntities = decoded.replace(/&[a-zA-Z#0-9]+;/g, (entity: string) => entityMap[entity] || entity);
-  return decodedEntities
-    .replace(/([.:!?])(?=\S)(?!\s|[A-Z]\.)/g, '$1 ') // Ensure space after ., :, !, or ? unless it's an abbreviation like U.S.A.
-    .trim();
-}
-
-export {
-  fetchSteamGames,
 }
