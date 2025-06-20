@@ -1,8 +1,8 @@
 "use client";
 
+import { GameFormState } from "@/lib/types/forms.types";
 import { useActionState, useState, useEffect } from "react";
 import Link from "next/link";
-import { TGameFormState } from "@/lib/types/admin.types";
 
 import styles from "./gameForm.module.css";
 
@@ -16,11 +16,11 @@ interface SteamGame {
 interface GameFormProps {
   mode: "create" | "edit";
   game?: SteamGame | null;
-  action: (state: TGameFormState, formData: FormData) => Promise<TGameFormState>;
+  action: (state: GameFormState, formData: FormData) => Promise<GameFormState>;
 }
 
 export default function GameForm({ mode, game, action }: GameFormProps) {
-  const [state, formAction, isPending] = useActionState<TGameFormState, FormData>(action, undefined);
+  const [state, formAction, isPending] = useActionState<GameFormState, FormData>(action, undefined);
   const [formData, setFormData] = useState({
     steamId: game?.steamId?.toString() || "",
     name: game?.name || "",

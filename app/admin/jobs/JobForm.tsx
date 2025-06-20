@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useState, useEffect } from "react";
-import { TJobPostingFormState } from "@/lib/types/admin.types";
+import { JobPostingFormState } from "@/lib/types/forms.types";
 import ArrayField from "./ArrayField";
 import Link from "next/link";
 
@@ -22,11 +22,11 @@ interface JobPosting {
 interface JobPostingFormProps {
   mode: "create" | "edit";
   jobPosting?: JobPosting | null;
-  action: (state: TJobPostingFormState, formData: FormData) => Promise<TJobPostingFormState>;
+  action: (state: JobPostingFormState, formData: FormData) => Promise<JobPostingFormState>;
 }
 
 export default function JobPostingForm({ mode, jobPosting, action }: JobPostingFormProps) {
-  const [state, formAction, isPending] = useActionState<TJobPostingFormState, FormData>(action, undefined);
+  const [state, formAction, isPending] = useActionState<JobPostingFormState, FormData>(action, undefined);
 
   const [formData, setFormData] = useState({
     title: jobPosting?.title || "",

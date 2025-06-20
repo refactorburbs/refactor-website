@@ -1,11 +1,11 @@
-import { IJobPost } from "@/lib/types/careers.types";
+import { JobPost } from "@/lib/types/jobs.types";
 import ScrollAnimatedElement from "../ScrollAnimatedElement";
 
 import styles from "./jobCard.module.css";
 import JobDetailsModal from "./JobDetailsModal";
 
 interface JobCardProps {
-  job: IJobPost;
+  job: JobPost;
 }
 
 const truncateSummary = (summary: string): string => {

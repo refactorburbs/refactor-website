@@ -1,6 +1,6 @@
-import type { INavRoute } from "../types/home.types";
+import { NavRoute } from "../types/navigation.types";
 
-export const NAV_ROUTES: Array<INavRoute> = [
+export const NAV_ROUTES: Array<NavRoute> = [
   { title: "Home", href: "#home" },
   { title: "About Us", href: "#about" },
   { title: "Games", href: "#games" },

@@ -4,9 +4,9 @@ import {
 } from "../constants/games.constants";
 import prisma from "../prisma";
 import {
-  ISteamGameData,
-  ISteamGameResponseData,
-  ISteamGameReviewSummary
+  SteamGameData,
+  SteamGameResponseData,
+  SteamGameReviewSummary
 } from "../types/games.types";
 
 function forceHttps(url: string): string {
@@ -16,10 +16,10 @@ function forceHttps(url: string): string {
   return url;
 }
 
-async function fetchSteamGames(): Promise<ISteamGameData[]> {
+async function fetchSteamGames(): Promise<SteamGameData[]> {
   const steamGamesData = await prisma.steamGame.findMany();
 
-  const results: ISteamGameData[] = await Promise.all(
+  const results: SteamGameData[] = await Promise.all(
     steamGamesData.map(async (game) => {
       try {
         const response = await fetch(`${STEAM_DETAILS_BASE_URL}${game.steamId}`, {
@@ -30,7 +30,7 @@ async function fetchSteamGames(): Promise<ISteamGameData[]> {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data: ISteamGameResponseData = await response.json();
+        const data: SteamGameResponseData = await response.json();
         const reviewSummary = await fetchSteamReviewsForGame(game.steamId);
 
         return {
@@ -53,7 +53,7 @@ async function fetchSteamGames(): Promise<ISteamGameData[]> {
   return results;
 }
 
-async function fetchSteamReviewsForGame(gameId: number): Promise<ISteamGameReviewSummary> {
+async function fetchSteamReviewsForGame(gameId: number): Promise<SteamGameReviewSummary> {
   try {
     const response = await fetch(`${STEAM_REVIEWS_BASE_URL}${gameId}?json=1`);
 

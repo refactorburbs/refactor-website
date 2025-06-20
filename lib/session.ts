@@ -1,7 +1,7 @@
 import "server-only";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-import { SessionPayload } from "./types/general.types";
+import { SessionPayload } from "./types/auth.types";
 
 // Jose is edge runtime compatible, used for JWT encryption/decryption
 // Encrypted stateless sessions are stored in HTTP only cookies

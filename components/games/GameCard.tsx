@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { IGameData } from "@/lib/types/games.types";
+import { GameData } from "@/lib/types/games.types";
 import ScrollAnimatedElement from "../ScrollAnimatedElement";
 import SteamButton from "./SteamButton";
 import GameCardPopupModal from "./GameCardPopupModal";
@@ -9,7 +9,7 @@ import Image from "next/image";
 
 import styles from "./gameCard.module.css";
 
-export default function GameCard({ game }: { game: IGameData }) {
+export default function GameCard({ game }: { game: GameData }) {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const handleMouseEnter = () => {

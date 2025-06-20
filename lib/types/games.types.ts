@@ -1,6 +1,6 @@
-export type IGameData = ISteamGameData; // | whatever else in the future
+export type GameData = SteamGameData; // | whatever else in the future if we have non-steam games
 
-export interface ISteamGameData {
+export interface SteamGameData {
   id: number;
   name: string;
   trailer?: string;
@@ -9,17 +9,17 @@ export interface ISteamGameData {
   tags?: string[];
   shortDescription?: string;
   longDescription?: string;
-  reviewSummary?: ISteamGameReviewSummary;
+  reviewSummary?: SteamGameReviewSummary;
 }
 
-export interface ISteamGameReviewSummary {
+export interface SteamGameReviewSummary {
   totalPositive: number;
   total: number;
   percentPositive: number;
   reviewScoreDesc: string;
 }
 
-export interface ISteamGameResponseData {
+export interface SteamGameResponseData {
   [appId: string]: {
     success: boolean;
     data: {

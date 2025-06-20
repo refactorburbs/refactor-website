@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { NAV_ROUTES } from "@/lib/constants/home.constants";
-import { INavRoute } from "@/lib/types/home.types";
+import { NavRoute } from "@/lib/types/navigation.types";
 import NavListItem from "./NavListItem";
 
 import styles from "./desktopNav.module.css";
@@ -86,7 +86,7 @@ export default function DesktopNav() {
   return (
     <nav className={styles.desktop_navbar}>
       <ul>
-        {NAV_ROUTES.map((route: INavRoute) => (
+        {NAV_ROUTES.map((route: NavRoute) => (
           <div className={styles.list_item_wrapper} key={route.href}>
             <NavListItem
               href={route.href}

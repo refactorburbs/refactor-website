@@ -2,17 +2,15 @@
 
 import { ADMIN_CODE } from "@/lib/constants/general.constants";
 import prisma from "@/lib/prisma";
-import { IActionState, TFormState } from "@/lib/types/general.types";
+import { AuthFormState, ContactFormState, GameFormState, JobPostingFormState, SubmitJobApplicationActionState } from "@/lib/types/forms.types";
 import { fetchSteamGames } from "@/lib/utils/fetch.utils";
 import { pinata } from "@/pinata/config";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
 import { createSession, deleteSession } from "@/lib/session";
-import { TGameFormState, TJobPostingFormState } from "@/lib/types/admin.types";
 import { revalidatePath } from "next/cache";
 import emailjs from "@emailjs/nodejs";
-import { TContactUsFormState } from "@/lib/types/contact.types";
 
 // AUTH -------------------------------------------------------------------
 
@@ -33,7 +31,7 @@ const signupSchema = z.object({
   path: ["confirmpassword"],
 });
 
-export async function signup(state: TFormState, formData: FormData): Promise<TFormState> {
+export async function signup(state: AuthFormState, formData: FormData): Promise<AuthFormState> {
   // 1. Validate form fields with zod
   const validatedFields = signupSchema.safeParse({
     name: formData.get("name"),
@@ -99,7 +97,7 @@ export async function signup(state: TFormState, formData: FormData): Promise<TFo
   redirect("/admin");
 }
 
-export async function login(state: TFormState, formData: FormData): Promise<TFormState> {
+export async function login(state: AuthFormState, formData: FormData): Promise<AuthFormState> {
   const validatedFields = loginSchema.safeParse({
     email: formData.get("email"),
     password: formData.get("password"),
@@ -174,7 +172,7 @@ export async function fetchAllGameCards() {
   return steamGames;
 }
 
-export async function createGame(state: TGameFormState, formData: FormData): Promise<TGameFormState> {
+export async function createGame(state: GameFormState, formData: FormData): Promise<GameFormState> {
   const validatedFields = createGameSchema.safeParse({
     steamId: formData.get("steamId"),
     name: formData.get("name"),
@@ -228,9 +226,9 @@ export async function createGame(state: TGameFormState, formData: FormData): Pro
 
 export async function updateGame(
   gameId: number,
-  state: TGameFormState,
+  state: GameFormState,
   formData: FormData
-): Promise<TGameFormState> {
+): Promise<GameFormState> {
   // Validate form fields
   console.log('game id is ', gameId)
   const validatedFields = editGameSchema.safeParse({
@@ -311,7 +309,7 @@ const jobPostingSchema = z.object({
   pluses: z.array(z.string().min(1, "Plus cannot be empty")).optional().default([]),
 });
 
-export async function createJobPosting(state: TJobPostingFormState, formData: FormData): Promise<TJobPostingFormState> {
+export async function createJobPosting(state: JobPostingFormState, formData: FormData): Promise<JobPostingFormState> {
   // Extract and parse array fields from FormData
   const extractArrayField = (fieldName: string): string[] => {
     const items: string[] = [];
@@ -381,9 +379,9 @@ export async function createJobPosting(state: TJobPostingFormState, formData: Fo
 
 export async function updateJobPosting(
   jobId: number,
-  state: TJobPostingFormState,
+  state: JobPostingFormState,
   formData: FormData
-): Promise<TJobPostingFormState> {
+): Promise<JobPostingFormState> {
   const extractArrayField = (fieldName: string): string[] => {
     const items: string[] = []
     let index = 0
@@ -517,9 +515,9 @@ async function uploadResumeToPinata(file: File): Promise<string> {
 }
 
 export async function submitJobApplication(
-  prevState: IActionState | null,
+  prevState: SubmitJobApplicationActionState | null,
   formData: FormData
-): Promise<IActionState> {
+): Promise<SubmitJobApplicationActionState> {
   try {
     const jobId = parseInt(formData.get("jobId") as string);
     const firstName = formData.get("firstName") as string;
@@ -789,9 +787,9 @@ const contactFormSchema = z.object({
 });
 
 export async function submitContactUsEmail(
-  formState: TContactUsFormState,
+  formState: ContactFormState,
   formData: FormData
-): Promise<TContactUsFormState> {
+): Promise<ContactFormState> {
   try {
     const data = {
       user_name: formData.get("user_name"),
