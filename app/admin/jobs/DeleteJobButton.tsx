@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteJobPosting } from "@/app/actions";
+import { deleteJobPosting } from "@/app/actions/jobs.actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 

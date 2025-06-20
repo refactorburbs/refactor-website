@@ -1,6 +1,6 @@
 "use client";
 
-import { submitJobApplication } from "@/app/actions";
+import { submitJobApplication } from "@/app/actions/applications.actions";
 import { useActionState } from "react";
 
 import styles from "./applicationForm.module.css";

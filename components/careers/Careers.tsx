@@ -2,7 +2,7 @@ import { ASSETS } from "@/lib/constants/assets.constants";
 import AnimatedHeader from "../AnimatedHeader";
 import Image from "next/image";
 import ScrollAnimatedElement from "../ScrollAnimatedElement";
-import { getJobPosts } from "@/lib/api/jobPosts.api";
+import { getAllJobPostings } from "@/app/actions/jobs.actions";
 import JobCardList from "./JobCardList";
 
 import styles from "./careers.module.css";
@@ -11,7 +11,7 @@ const footballSimHead = ASSETS.IMAGES.CAREERS.footballsimHead;
 const footballSimHelmet = ASSETS.IMAGES.CAREERS.footballsimHelmet;
 
 export default async function Careers() {
-  const jobPosts = await getJobPosts();
+  const jobPosts = await getAllJobPostings();
   return (
     <section className={styles.careers}>
       <div className={styles.gradient_drop} />

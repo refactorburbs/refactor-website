@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { login } from "@/app/actions";
+import { login } from "@/app/actions/auth.actions";
 import Link from "next/link";
 
 import styles from "../auth.module.css";

@@ -1,4 +1,4 @@
-import { deleteJobApplication } from "@/app/actions";
+import { deleteJobApplication } from "@/app/actions/applications.actions";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

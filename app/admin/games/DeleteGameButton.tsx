@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteGame } from "@/app/actions";
+import { deleteGame } from "@/app/actions/games.actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 

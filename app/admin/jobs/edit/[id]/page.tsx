@@ -1,4 +1,4 @@
-import { getJobPostingById, updateJobPosting } from "@/app/actions";
+import { getJobPostingById, updateJobPosting } from "@/app/actions/jobs.actions";
 import { notFound } from "next/navigation";
 import JobForm from "../../JobForm";
 import { getUser } from "@/lib/dal";

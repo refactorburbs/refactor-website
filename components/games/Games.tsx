@@ -1,4 +1,4 @@
-import { fetchAllGameCards } from "@/app/actions";
+import { fetchAllGameCards } from "@/app/actions/games.actions";
 import Divider from "../Divider";
 import GameCard from "./GameCard";
 
