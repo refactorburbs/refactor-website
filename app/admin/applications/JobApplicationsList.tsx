@@ -130,7 +130,7 @@ export default function JobApplicationsList({ applications, jobPostings }: JobAp
         )}
       </div>
 
-      <div className="applications-grid">
+      <div className={styles.applications_grid}>
         {filteredApplications.length > 0 ? (
           filteredApplications.map((application) => (
             <JobApplicationCard
@@ -139,7 +139,7 @@ export default function JobApplicationsList({ applications, jobPostings }: JobAp
             />
           ))
         ) : (
-          <div className="no-applications">
+          <div className={styles.no_applications}>
             <p>
               {applications.length === 0
                 ? "No job applications found."
@@ -149,10 +149,10 @@ export default function JobApplicationsList({ applications, jobPostings }: JobAp
             {filteredApplications.length === 0 && totalCount > 0 && (
               <button
                 onClick={() => {
-                  setSelectedJobId('all')
+                  setSelectedJobId("all")
                   setShowStarredOnly(false)
                 }}
-                className="clear-filters-btn"
+                className={styles.clear_filters_btn}
               >
                 <span>Clear Filters</span>
               </button>
@@ -160,45 +160,6 @@ export default function JobApplicationsList({ applications, jobPostings }: JobAp
           </div>
         )}
       </div>
-
-      <style jsx>{`
-        .applications-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-          gap: 1.5rem;
-        }
-
-        .no-applications {
-          grid-column: 1 / -1;
-          text-align: center;
-          padding: 2rem 1rem;
-          color: gray;
-          background-color: transparent;
-          border-radius: 8px;
-          border: 2px dashed gray;
-        }
-
-        .clear-filters-btn {
-          margin-top: 1rem;
-          font-size: 1rem;
-        }
-
-        @media (max-width: 768px) {
-          .applications-header {
-            flex-direction: column;
-            gap: 1rem;
-          }
-
-          .filters {
-            width: 100%;
-            justify-content: space-between;
-          }
-
-          .applications-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
     </div>
   )
 }

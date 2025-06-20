@@ -88,3 +88,40 @@
   font-style: italic;
   font-size: 0.9rem;
 }
+
+.applications_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1rem;
+}
+
+.no_applications {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: gray;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 2px dashed gray;
+}
+
+.clear_filters_btn {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .applications_header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .filters {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .applicatoins_grid {
+    grid-template-columns: 1fr;
+  }
+}
