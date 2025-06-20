@@ -1,3 +1,7 @@
+// If you need to start with a fresh database, use this seed file to populate the tables with some data.
+// In the package.json, there is a script command for prisma to seed.
+// In the terminal, run: npx prisma db seed
+
 import { PrismaClient, Prisma } from "../app/generated/prisma";
 
 const prisma = new PrismaClient();
