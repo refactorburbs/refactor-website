@@ -12,14 +12,14 @@ export default function AuthLayout({
       <div className={styles.auth_card}>
         {children}
         <div className={styles.card_branding}>
-        <Image
-          src="/refactor-games-logo.webp"
-          alt="Refactor Games Logo"
-          className={styles.navbar_logo}
-          width={326}
-          height={88}
-        />
-        <h3>Administrative Dashboard</h3>
+          <Image
+            src="/refactor-games-logo.webp"
+            alt="Refactor Games Logo"
+            className={styles.navbar_logo}
+            width={326}
+            height={88}
+          />
+          <h3>Administrative Dashboard</h3>
         </div>
       </div>
     </div>
