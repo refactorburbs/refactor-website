@@ -9,6 +9,20 @@ This repository contains the source code for the Refactor Games company website 
 - **Hosting**: ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 - **Domain**: GoDaddy
 
+## 📖 Table of Contents
+
+- [🚀 Quick Start](#-quick-start)
+- [📝 Making Changes](#-making-changes)
+  - [Creating a New Feature or Fix](#creating-a-new-feature-or-fix)
+- [🗄️ Database Management](#️-database-management)
+  - [Viewing the Database](#viewing-the-database)
+- [📁 Pinata File Storage](#-pinata-file-storage)
+- [📋 Privacy Policies](#-privacy-policies)
+  - [Adding a New Privacy Policy](#adding-a-new-privacy-policy)
+- [🚀 Deployment](#-deployment)
+- [🌐 Domain & Email Setup](#-domain--email-setup)
+- [🔧 Environment Variables](#-environment-variables)
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -52,6 +66,9 @@ Before you begin, make sure you have these installed on your computer:
 
 Your website will be available at `http://localhost:3000`
 
+<br>
+<br>
+
 ## 📝 Making Changes
 
 ### Creating a New Feature or Fix
@@ -84,6 +101,9 @@ Your website will be available at `http://localhost:3000`
 
 > ⚠️ **Important**: Never push directly to the `main` branch as it automatically deploys to the live website!
 
+<br>
+<br>
+
 ## 🗄️ Database Management
 
 We use **Prisma ORM** with a hosted PostgreSQL database for storing website data (job applications, contact forms, etc.).
@@ -115,9 +135,14 @@ This opens a web interface at `http://localhost:5555` where you can view, add, e
 - **Simple changes** (adding/editing records): Use Prisma Studio
 - **Structure changes** (new tables/columns): Update the [schema file](https://github.com/refactorburbs/refactor-website/blob/main/prisma/schema.prisma) and run migrations
 
-## 📁 File Storage
+<br>
+<br>
+
+## 📁 Pinata File Storage
 
 We use **Pinata** to store uploaded files (like resumes from job applications) and convert them to web-accessible URLs.
+
+![pinata](https://github.com/user-attachments/assets/f42bc448-13ad-4ac2-9a3c-7c2cfc58646f)
 
 ### Pinata Access
 
@@ -132,6 +157,33 @@ We use **Pinata** to store uploaded files (like resumes from job applications) a
 2. File gets stored on Pinata servers
 3. Pinata returns a URL that we save in our database
 4. When an application is deleted, the file is automatically removed from Pinata
+
+<br>
+<br>
+
+## 📋 Privacy Policies
+
+Game privacy policies are hosted on the website to meet platform requirements (like Epic Games Store).
+
+### Adding a New Privacy Policy
+
+1. **Create a new folder** in `app/privacy-policies/` with your game's name
+2. **Add a `page.tsx` file** in that folder
+3. **Write your privacy policy** using React/JSX
+4. **Access it** at: `https://www.refactorgames.com/privacy-policies/your-game-name`
+
+**Example Structure:**
+```
+app/
+└── privacy-policies/
+    ├── football-simulator/
+    │   └── page.tsx
+    └── your-new-game/
+        └── page.tsx
+```
+
+<br>
+<br>
 
 ## 🚀 Deployment
 
@@ -166,27 +218,6 @@ Our domain `refactorgames.com` is managed through **GoDaddy** with the following
 ### Email Setup
 
 Company emails (@refactorgames.com) are handled through **Google Workspace** and configured via GoDaddy DNS settings.
-
-## 📋 Privacy Policies
-
-Game privacy policies are hosted on the website to meet platform requirements (like Epic Games Store).
-
-### Adding a New Privacy Policy
-
-1. **Create a new folder** in `app/privacy-policies/` with your game's name
-2. **Add a `page.tsx` file** in that folder
-3. **Write your privacy policy** using React/JSX
-4. **Access it** at: `https://www.refactorgames.com/privacy-policies/your-game-name`
-
-**Example Structure:**
-```
-app/
-└── privacy-policies/
-    ├── football-simulator/
-    │   └── page.tsx
-    └── your-new-game/
-        └── page.tsx
-```
 
 ## 🔧 Environment Variables
 
