@@ -1,0 +1,25 @@
+.written_content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: var(--small);
+}
+
+.written_content p {
+  color: gray;
+}
+
+.written_content a {
+  color: var(--color-secondary);
+}
+
+.list {
+  padding: 1rem 0 1rem 2rem;
+}
+
+.credential_grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}

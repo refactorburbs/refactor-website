@@ -1,3 +1,5 @@
+import { Credentials } from "../types/auth.types";
+
 /**
  * Ensures a URL uses HTTPS instead of HTTP.
  *
@@ -72,4 +74,25 @@ export function timeAgo(date: Date | string): string {
   }
 
   return "just now";
+}
+
+export function getCredentials(): Credentials {
+  return {
+    github: {
+      email: process.env.GITHUB_EMAIL || "",
+      password: process.env.GITHUB_PASS || ""
+    },
+    prisma: {
+      email: process.env.PRISMA_EMAIL || "",
+      password: process.env.PRISMA_PASS || ""
+    },
+    pinata: {
+      email: process.env.PINATA_EMAIL || "",
+      password: process.env.PINATA_PASS || ""
+    },
+    emailjs: {
+      email: process.env.EMAILJS_EMAIL || "",
+      password: process.env.EMAILJS_PASS || ""
+    }
+  }
 }
