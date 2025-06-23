@@ -73,6 +73,8 @@ Your website will be available at `http://localhost:3000`
 
 ### Creating a New Feature or Fix
 
+You can either make direct file [edits](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files) within GitHub itself, OR:
+
 1. **Create a new branch** for your changes:
    ```bash
    git checkout -b your-branch-name
