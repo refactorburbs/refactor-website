@@ -1,10 +1,11 @@
-import { HERO_VIDEO } from "@/lib/constants/images.constants";
+import { ASSETS } from "@/lib/constants/assets.constants";
 import PagePreloader from "./PagePreloader";
 import LEDOverlay from "./LEDOverlay";
 import RotatingHeroText from "./RotatingHeroText";
 
 import styles from "./home.module.css";
-const video = HERO_VIDEO;
+
+const video = ASSETS.VIDEOS.hero;
 
 export default function Home() {
   return (

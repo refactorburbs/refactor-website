@@ -1,4 +1,4 @@
-import { getGameById, updateGame } from "@/app/actions";
+import { getGameById, updateGame } from "@/app/actions/games.actions";
 import { notFound } from "next/navigation";
 import GameForm from "../../GameForm";
 import { getUser } from "@/lib/dal";

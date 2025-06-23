@@ -1,14 +1,15 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// New feature: to speed up queries and scale with serverless/edge functions:
+// We are using Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 /**
+ * FOR REFERENCE - Here is the console output as a result of following Prisma's Getting Started:
  * Successfully authenticated as rkmiller131@gmail.com.
  * Let's set up your Prisma Postgres database!
  * ✔ Select your region: us-west-1 - US West (N. California)
- * ✔ Enter a project name: Refactor Website Admin
+ * ✔ Enter a project name: Refactor Website
  * ✔ Success! Your Prisma Postgres database is ready ✅
  * We created an initial schema.prisma file and a .env file with your DATABASE_URL environment variable already set.
  * --- Next steps ---
@@ -28,6 +29,18 @@
  */
 
 // More instructions on setting up schema and seeding the db: https://www.prisma.io/docs/guides/nextjs
+// Seed command: npx prisma db seed
+
+// To view your database tables, run:
+// npx prisma studio
+
+// To update database tables, you need to create a migration and name it:
+// npx prisma migrate dev --name nameOfMigration
+
+// In production, it is recommended to use the command:
+// prisma generate --no-engine
+// This is already configured into the build script for this website, so all you have to do is run
+// npm run build
 
 generator client {
   provider = "prisma-client-js"

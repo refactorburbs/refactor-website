@@ -1,4 +1,4 @@
-import { fetchAllGameCards } from "@/app/actions";
+import { fetchAllGameCards } from "@/app/actions/games.actions";
 import AdminGameCard from "./AdminGameCard";
 import Link from "next/link";
 import { getUser } from "@/lib/dal";

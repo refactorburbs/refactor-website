@@ -18,7 +18,7 @@
   display: grid;
   grid-template-columns: 2fr 3fr;
   gap: 2rem;
-  height: 600px;
+  height: 700px;
 }
 
 .team_description {
@@ -57,7 +57,7 @@
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;
-  height: 600px;
+  height: 700px;
 }
 
 .responsive_photo {
@@ -66,6 +66,17 @@
   object-fit: cover; /* Maintains aspect ratio while filling container */
   object-position: center;
   display: block;
+}
+
+@media screen and (max-width: 1920px) {
+  .team_video iframe {
+    width: 448px;
+    height: 252px;
+  }
+  .team_content,
+  .team_image {
+    height: 600px;
+  }
 }
 
 @media screen and (max-width: 1250px) {

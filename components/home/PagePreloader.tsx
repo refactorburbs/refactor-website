@@ -1,10 +1,11 @@
 "use client";
 
-import { PRELOADER_VIDEO } from "@/lib/constants/images.constants";
+import { ASSETS } from "@/lib/constants/assets.constants";
 import { useEffect, useState } from "react";
 
 import styles from "./pagePreloader.module.css";
-const video = PRELOADER_VIDEO;
+
+const video = ASSETS.VIDEOS.preloader;
 
 export default function PagePreloader() {
   const [isLoaded, setIsLoaded] = useState(false);

@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteJobPosting } from "@/app/actions";
+import { deleteJobPosting } from "@/app/actions/jobs.actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,7 +15,7 @@ export default function DeleteGameButton({ jobId, jobTitle }: DeleteGameButtonPr
 
   const handleDelete = async () => {
     const confirmed = window.confirm(
-      `Are you sure you want to delete the Job Position: "${jobTitle}"? This action cannot be undone.`
+      `Are you sure you want to delete the Job Position: "${jobTitle}"? This will also delete all associated applicants.`
     )
 
     if (!confirmed) return;

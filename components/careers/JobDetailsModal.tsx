@@ -1,6 +1,6 @@
 "use client";
 
-import { IJobPost } from "@/lib/types/careers.types";
+import { JobPost } from "@/lib/types/jobs.types";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import DetailsModalSection from "./DetailsModalSection";
@@ -23,7 +23,7 @@ const renderTags = (tags: string[]) => {
   );
 }
 
-export default function JobDetailsModal({ job }: { job: IJobPost }) {
+export default function JobDetailsModal({ job }: { job: JobPost }) {
   const [showModal, setShowModal] = useState(false);
   const applyUrl = `/apply/${job.id}`;
 

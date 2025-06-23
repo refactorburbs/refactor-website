@@ -1,4 +1,4 @@
-import { getAllJobPostings } from "@/app/actions";
+import { getAllJobPostings } from "@/app/actions/jobs.actions";
 import AdminJobCard from "./AdminJobCard";
 import Link from "next/link";
 import { getUser } from "@/lib/dal";

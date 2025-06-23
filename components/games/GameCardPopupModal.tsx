@@ -1,14 +1,14 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { IGameData } from "@/lib/types/games.types";
+import { GameData } from "@/lib/types/games.types";
 import Image from "next/image";
 
 import styles from "./gameCardPopupModal.module.css";
 
 interface GameCardPopupModalProps {
   isPopupVisible: boolean;
-  game: IGameData;
+  game: GameData;
 }
 // @TODO replace in db the trailer video for a webm, cloudinary hosted url
 export default function GameCardPopupModal({ isPopupVisible, game }: GameCardPopupModalProps) {

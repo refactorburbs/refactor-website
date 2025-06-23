@@ -41,3 +41,9 @@
   color: indianred;
   font-size: var(--x-small);
 }
+
+@media screen and (max-width: 600px) {
+  .auth_form_wrapper {
+    padding: 2rem;
+  }
+}

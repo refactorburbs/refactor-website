@@ -1,4 +1,4 @@
-import { createGame } from "@/app/actions";
+import { createGame } from "@/app/actions/games.actions";
 import GameForm from "../GameForm";
 import { getUser } from "@/lib/dal";
 

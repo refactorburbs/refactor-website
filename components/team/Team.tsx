@@ -1,6 +1,6 @@
 "use client";
 
-import { TEAM_SILLY, TEAM_SMILING } from "@/lib/constants/images.constants";
+import { ASSETS } from "@/lib/constants/assets.constants";
 import { useState } from "react";
 import Divider from "../Divider";
 import Image from "next/image";
@@ -8,8 +8,8 @@ import ScrollAnimatedElement from "../ScrollAnimatedElement";
 
 import styles from "./team.module.css";
 
-const teamSmiling = TEAM_SMILING;
-const teamSilly = TEAM_SILLY;
+const teamSmiling = ASSETS.IMAGES.TEAM.smiling;
+const teamSilly = ASSETS.IMAGES.TEAM.silly;
 
 export default function Team() {
   const [isHovered, setIsHovered] = useState(false);
@@ -33,9 +33,9 @@ export default function Team() {
               </div>
               <div className={styles.team_video}>
                 <iframe
-                  width="448"
-                  height="252"
-                  src="https://www.youtube.com/embed/rIwM1Zibk7M?si=STemAostCqMFQqdQ"
+                  width="672"
+                  height="378"
+                  src="https://www.youtube-nocookie.com/embed/rIwM1Zibk7M?si=STemAostCqMFQqdQ"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"

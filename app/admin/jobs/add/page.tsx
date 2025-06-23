@@ -1,4 +1,4 @@
-import { createJobPosting } from "@/app/actions";
+import { createJobPosting } from "@/app/actions/jobs.actions";
 import JobForm from "../JobForm";
 import { getUser } from "@/lib/dal";
 

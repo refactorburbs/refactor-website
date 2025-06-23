@@ -1,13 +1,13 @@
 "use client";
 
-import { IJobPost } from "@/lib/types/careers.types";
+import { useState } from "react";
+import { JobPost } from "@/lib/types/jobs.types";
 import JobCard from "./JobCard";
 
 import styles from "./jobCardList.module.css";
-import { useState } from "react";
 
 interface JobCardListProps {
-  jobPosts: IJobPost[];
+  jobPosts: JobPost[];
 }
 
 const JOBS_PER_PAGE = 3;

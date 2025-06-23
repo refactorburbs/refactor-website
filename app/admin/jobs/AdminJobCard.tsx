@@ -1,15 +1,15 @@
-import { IJobPosting } from "@/lib/types/admin.types";
+import { JobPost } from "@/lib/types/jobs.types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import DeleteJobButton from "./DeleteJobButton";
-import { getJobApplicationCount } from "@/app/actions";
-
-import styles from "./adminJobCard.module.css";
+import { getJobApplicationCount } from "@/app/actions/applications.actions";
 import { timeAgo } from "@/lib/utils/general.utils";
 
+import styles from "./adminJobCard.module.css";
+
 interface AdminJobCardProps {
-  job: IJobPosting;
+  job: JobPost;
 }
 
 export default async function AdminJobCard({ job }: AdminJobCardProps) {

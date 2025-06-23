@@ -1,13 +1,13 @@
 "use client";
 
-import { A16Z_LOGO } from "@/lib/constants/images.constants";
+import { ASSETS } from "@/lib/constants/assets.constants";
 import { useEffect, useRef, useState } from "react";
 import AnimatedHeader from "../AnimatedHeader";
 import Image from "next/image";
 
 import styles from "./about.module.css";
 
-const a16z = A16Z_LOGO;
+const a16z = ASSETS.IMAGES.ABOUT.a16zLogo;
 
 export default function MobileAbout() {
   const [isVisible, setIsVisible] = useState(false);

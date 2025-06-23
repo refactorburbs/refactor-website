@@ -1,13 +1,14 @@
 "use client";
 
 import { useActionState } from "react";
-import { login } from "@/app/actions";
+import { login } from "@/app/actions/auth.actions";
 import Link from "next/link";
 
 import styles from "../auth.module.css";
 
 export default function Login() {
-    const [state, action, pending] = useActionState(login, undefined);
+  const [state, action, pending] = useActionState(login, undefined);
+
   return (
     <div className={styles.auth_form_wrapper}>
       <h2>Welcome Back!</h2>

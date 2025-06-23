@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import AnimatedHeader from "../AnimatedHeader";
-import { submitContactUsEmail } from "@/app/actions";
+import { submitContactUsEmail } from "@/app/actions/contact.actions";
 
 import styles from "./leaveAMessage.module.css";
 

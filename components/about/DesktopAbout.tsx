@@ -1,11 +1,11 @@
-import { A16Z_LOGO } from "@/lib/constants/images.constants";
+import { ASSETS } from "@/lib/constants/assets.constants";
 import AnimatedHeader from "../AnimatedHeader";
 import ScrollAnimatedElement from "../ScrollAnimatedElement";
 import Image from "next/image";
 
 import styles from "./about.module.css";
 
-const a16z = A16Z_LOGO;
+const a16z = ASSETS.IMAGES.ABOUT.a16zLogo;
 
 export default function DesktopAbout() {
   return (

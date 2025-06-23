@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { NAV_ROUTES } from "@/lib/constants/home.constants";
-import { INavRoute } from "@/lib/types/home.types";
+import { NAV_ROUTES } from "@/lib/constants/navigation.constants";
+import { NavRoute } from "@/lib/types/navigation.types";
 import NavListItem from "./NavListItem";
 
 import styles from "./desktopNav.module.css";
@@ -86,15 +86,15 @@ export default function DesktopNav() {
   return (
     <nav className={styles.desktop_navbar}>
       <ul>
-        {NAV_ROUTES.map((route: INavRoute) => (
-          <div className={styles.list_item_wrapper} key={route.href}>
+        {NAV_ROUTES.map((route: NavRoute) => (
+          <li className={styles.list_item_wrapper} key={route.href}>
             <NavListItem
               href={route.href}
               title={route.title}
               isActive={activeSection === route.href}
               onSetActive={setActiveSection}
             />
-          </div>
+          </li>
         ))}
       </ul>
     </nav>

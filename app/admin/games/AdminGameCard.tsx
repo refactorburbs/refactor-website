@@ -1,4 +1,4 @@
-import { IGameData } from "@/lib/types/games.types";
+import { GameData } from "@/lib/types/games.types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import DeleteGameButton from "./DeleteGameButton";
@@ -8,7 +8,7 @@ import Link from "next/link";
 import styles from "./adminGameCard.module.css";
 
 interface GameCardProps {
-  game: IGameData;
+  game: GameData;
 }
 
 export default function AdminGameCard({ game }: GameCardProps) {

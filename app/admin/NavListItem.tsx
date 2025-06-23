@@ -1,13 +1,13 @@
 "use client";
 
-import { INavItem } from "@/lib/types/admin.types";
+import { AdminNavItem } from "@/lib/types/navigation.types";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import styles from "./navListItem.module.css";
 
 interface NavListItemProps {
-  item: INavItem;
+  item: AdminNavItem;
 }
 
 export default function NavListItem({ item }: NavListItemProps) {
