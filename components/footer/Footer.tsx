@@ -11,6 +11,7 @@ export default function Footer() {
           className={`${styles.footer_img} ${styles.instagram_logo}`}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Football Simulator Instagram"
         >
           <Image
             src="/instagram-logo.svg"
@@ -24,6 +25,7 @@ export default function Footer() {
           className={`${styles.footer_svg} ${styles.x_logo}`}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Refactor Games X (Twitter)"
         >
           <svg width="20" height="20" viewBox="0 0 300 301" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_198_21)">
@@ -41,6 +43,7 @@ export default function Footer() {
           className={`${styles.footer_svg} ${styles.linkedin_logo}`}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Refactor Games LinkedIn"
         >
           <svg width="20" height="20" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M186.219 257.368H25.6181C18.4903 257.368 12.7148 263.146 12.7148 270.271V786.214C12.7148 793.342 18.4903 799.117 25.6181 799.117H186.219C193.347 799.117 199.123 793.342 199.123 786.214V270.271C199.123 263.146 193.347 257.368 186.219 257.368Z" fill="white" className={styles.svg_path}/>
@@ -50,5 +53,5 @@ export default function Footer() {
         </a>
       </div>
     </footer>
-  )
+  );
 }

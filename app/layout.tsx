@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-
-import "./globals.css";
-
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-config.autoAddCss = false
+config.autoAddCss = false;
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Refactor Games",
@@ -94,14 +93,8 @@ export default function RootLayout({
             })
           }}
         />
+        {/* This is the Din Condensed Adobe font import */}
         <link rel="stylesheet" href="https://use.typekit.net/nhr0bmk.css"></link>
-
-        {/* FontAwesome */}
-        <Script
-          src="https://kit.fontawesome.com/a35f7c14ea.js"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
       </head>
       <body>
         {children}

@@ -35,7 +35,7 @@ export default function Team() {
                 <iframe
                   width="448"
                   height="252"
-                  src="https://www.youtube.com/embed/rIwM1Zibk7M?si=STemAostCqMFQqdQ"
+                  src="https://www.youtube-nocookie.com/embed/rIwM1Zibk7M?si=STemAostCqMFQqdQ"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"

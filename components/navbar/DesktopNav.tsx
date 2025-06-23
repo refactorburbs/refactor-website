@@ -87,14 +87,14 @@ export default function DesktopNav() {
     <nav className={styles.desktop_navbar}>
       <ul>
         {NAV_ROUTES.map((route: NavRoute) => (
-          <div className={styles.list_item_wrapper} key={route.href}>
+          <li className={styles.list_item_wrapper} key={route.href}>
             <NavListItem
               href={route.href}
               title={route.title}
               isActive={activeSection === route.href}
               onSetActive={setActiveSection}
             />
-          </div>
+          </li>
         ))}
       </ul>
     </nav>
