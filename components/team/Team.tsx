@@ -33,8 +33,8 @@ export default function Team() {
               </div>
               <div className={styles.team_video}>
                 <iframe
-                  width="448"
-                  height="252"
+                  width="672"
+                  height="378"
                   src="https://www.youtube-nocookie.com/embed/rIwM1Zibk7M?si=STemAostCqMFQqdQ"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
