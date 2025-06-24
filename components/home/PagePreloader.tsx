@@ -13,7 +13,7 @@ export default function PagePreloader() {
   useEffect(() => {
     const loadTimer = setTimeout(() => {
       setIsLoaded(true);
-    }, 2000);
+    }, 2400);
 
     return () => clearTimeout(loadTimer);
   }, [])
