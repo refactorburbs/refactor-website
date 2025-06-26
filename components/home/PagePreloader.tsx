@@ -13,13 +13,13 @@ export default function PagePreloader() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
 useEffect(() => {
-  if (videoRef.current && videoRef.current.readyState >= 3) {
+  if (!videoLoaded && videoRef.current && videoRef.current.readyState >= 3) {
     setVideoLoaded(true);
     videoRef.current.play().catch((error) => {
       console.error("Error attempting to play", error);
     });
   }
-}, []);
+}, [videoLoaded]);
 
 useEffect(() => {
   if (!videoLoaded) return;
