@@ -16,7 +16,7 @@ export default function DesktopAbout() {
         directionIn="up"
         thresholdIn={1}
         customAnimationInClass="about-content-stagger-in"
-        globalClassName="about-content-before-animation"
+        globalClassName="about-content-before-animation z-5"
         once={true}
       >
         <ScrollAnimatedElement

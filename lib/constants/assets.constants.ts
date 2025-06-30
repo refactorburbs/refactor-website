@@ -8,7 +8,7 @@ export const ASSETS = {
   },
   IMAGES: {
     ABOUT: {
-      footballsimCharacters: "https://refactor-games.github.io/cdn/images/footballsim-characters-closeup.webp",
+      footballsimCharacters: "https://refactor-games.github.io/cdn/images/footballsim-characters-full-render.webp",
       a16zLogo: "https://refactor-games.github.io/cdn/images/speedrun-logo.webp",
     },
     TEAM: {
