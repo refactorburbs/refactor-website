@@ -18,17 +18,17 @@
   height: 52vw; /* 9/16 * 100 = 56.25 for 16:9 aspect ratio but image isn't quite 16:9*/
   max-height: 100vh; /* prevent overflow on tall viewports */
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .gradient_drop {
   position: absolute;
   top: 0;
   left: 0;
-  height: 80px;
+  height: 100px;
   width: 100%;
   z-index: 1;
-  background: linear-gradient(black 30%, transparent);
+  background: linear-gradient(black, transparent);
 }
 
 .about_content {
@@ -56,13 +56,13 @@
 
 .overlay_images {
   position: absolute;
-  left: 5%;
-  bottom: 0;
-  z-index: 2;
+  left: -5%;
+  bottom: -5.5%;
+  z-index: 4;
 }
 
 .football_character_closeup {
-  width: 88%;
+  width: 85%;
   height: auto;
 }
 /* Firefox-specific fix for this image */
@@ -80,7 +80,7 @@
     display: none;
   }
   .about_content {
-    z-index: 3;
+    z-index: 5;
   }
   .logos {
     gap: 1rem;
@@ -108,6 +108,10 @@
   }
   .gradient_drop {
     height: 80px;
+  }
+  .overlay_images {
+    left: 5%;
+    bottom: -3%;
   }
   .football_character_closeup {
     width: 80%;

@@ -10,13 +10,13 @@ const a16z = ASSETS.IMAGES.ABOUT.a16zLogo;
 export default function DesktopAbout() {
   return (
     <div className={styles.desktop_about}>
-      <AnimatedHeader title="About Us" rootMargin="0px 0px -400px 0px"/>
+      <AnimatedHeader title="About Us" rootMargin="0px 0px -400px 0px" iconColor="black"/>
 
       <ScrollAnimatedElement
         directionIn="up"
         thresholdIn={1}
         customAnimationInClass="about-content-stagger-in"
-        globalClassName="about-content-before-animation"
+        globalClassName="about-content-before-animation z-5"
         once={true}
       >
         <ScrollAnimatedElement
