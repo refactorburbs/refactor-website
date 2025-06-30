@@ -25,10 +25,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 80px;
+  height: 100px;
   width: 100%;
   z-index: 1;
-  background: linear-gradient(black 30%, transparent);
+  background: linear-gradient(black, transparent);
 }
 
 .about_content {

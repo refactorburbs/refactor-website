@@ -6,6 +6,7 @@ import ScrollAnimatedElement from "./ScrollAnimatedElement";
 interface AnimatedHeaderProps {
   title: string;
   hasIcon?: boolean;
+  iconColor?: "white" | "black";
   isAnimatingUnderline?: boolean;
   animatesOnce?: boolean;
   rootMargin?: string;
@@ -14,6 +15,7 @@ interface AnimatedHeaderProps {
 export default function AnimatedHeader({
   title,
   hasIcon = true,
+  iconColor = "white",
   isAnimatingUnderline = false,
   animatesOnce = false,
   rootMargin="0px"
@@ -27,7 +29,7 @@ export default function AnimatedHeader({
           </h2>
           {hasIcon && (
             <Image
-              src="/refactor-icon-white.svg"
+              src={`/refactor-icon-${iconColor}.svg`}
               alt="Refactor Games Logo Icon"
               width={32}
               height={32}
@@ -57,7 +59,7 @@ export default function AnimatedHeader({
         {hasIcon && (
           <ScrollAnimatedElement directionIn="up" thresholdIn={1} rootMargin={rootMargin}>
             <Image
-              src="/refactor-icon-white.svg"
+              src={`/refactor-icon-${iconColor}.svg`}
               alt="Refactor Games Logo Icon"
               width={32}
               height={32}
