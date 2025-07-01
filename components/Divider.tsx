@@ -38,6 +38,7 @@ export default function Divider({ title, isUnderlined, isSlanted }: DividerProps
               alt="Refactor Games Logo Icon"
               width={32}
               height={32}
+              className={styles.icon}
             />
           </div>
         ) : (
@@ -46,6 +47,7 @@ export default function Divider({ title, isUnderlined, isSlanted }: DividerProps
             alt="Refactor Games Logo Icon"
             width={32}
             height={32}
+            className={styles.icon}
           />
         )
       }

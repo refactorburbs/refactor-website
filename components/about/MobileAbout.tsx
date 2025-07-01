@@ -21,7 +21,7 @@ export default function MobileAbout() {
           setIsVisible(false);
         }
       },
-      { threshold: 1 }
+      { threshold: 0.9 }
     );
 
     if (animatedTextRef.current) {
@@ -33,7 +33,7 @@ export default function MobileAbout() {
 
   return (
     <div className={styles.mobile_about}>
-      <AnimatedHeader title="About Us" iconColor="black"/>
+      <AnimatedHeader title="About Us"/>
       <div
         ref={animatedTextRef}
         className={`${isVisible ? "about-content-stagger-in" : ""} about-content-before-animation ${styles.about_content}`}

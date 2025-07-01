@@ -17,10 +17,16 @@
 .list_item_wrapper {
   position: relative;
   height: 60px;
-  width: 115px;
+  width: 135px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 1920px) {
+  .list_item_wrapper {
+    width: 115px;
+  }
 }
 
 @media screen and (max-width: 1024px) {

@@ -47,7 +47,9 @@ export default function GameCard({ game }: { game: GameData }) {
           <div className={styles.game_card_content}>
             <div className={styles.header_description}>
               <h2>{game.name}</h2>
-              <p>{game.shortDescription}</p>
+              <p className={styles.short_description}>
+                {game.shortDescription}
+              </p>
             </div>
             <SteamButton storePage={game.storePage}/>
           </div>

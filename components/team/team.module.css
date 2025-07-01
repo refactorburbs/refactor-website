@@ -34,7 +34,7 @@
 }
 
 .team_text p {
-  font-size: x-large;
+  font-size: var(--medium);
   line-height: 1.3;
   margin: 0;
   text-align: right;

@@ -1,6 +1,6 @@
 .home {
-  margin-top: 60px;
-  height: calc(100svh - 60px);
+  margin-top: var(--divider-height);
+  height: calc(100svh - var(--divider-height));
   width: 100%;
 }
 
@@ -14,11 +14,4 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
-}
-
-@media screen and (max-width: 700px) {
-  .home {
-    margin-top: 50px; /* this accounts for mobile nav bar height/viewing */
-    height: calc(75svh - 50px);
-  }
 }
