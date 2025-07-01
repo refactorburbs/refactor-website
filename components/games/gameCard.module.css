@@ -31,6 +31,10 @@
   }
 }
 
+.short_description {
+  font-size: var(--small);
+}
+
 @media screen and (max-width: 1024px) {
   .game_card {
     flex-direction: column;

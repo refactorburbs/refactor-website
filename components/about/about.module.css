@@ -15,17 +15,17 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 52vw; /* 9/16 * 100 = 56.25 for 16:9 aspect ratio but image isn't quite 16:9*/
+  height: 56.25vw; /* 9/16 * 100 = 56.25 for 16:9 aspect ratio*/
   max-height: 100vh; /* prevent overflow on tall viewports */
   width: 100%;
-  overflow: visible;
+  overflow: visible; /* new image needs hand to overlap bottom divider - unfortunately means hands will overflow on top too */
 }
 
 .gradient_drop {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100px;
+  height: 350px;
   width: 100%;
   z-index: 1;
   background: linear-gradient(black, transparent);
@@ -40,6 +40,7 @@
 
 .logos {
   align-self: flex-end;
+  margin-bottom: 12%;
   display: flex;
   flex-direction: column;
   width: 25%;
@@ -56,13 +57,13 @@
 
 .overlay_images {
   position: absolute;
-  left: -5%;
+  left: -10%;
   bottom: -5.5%;
   z-index: 4;
 }
 
 .football_character_closeup {
-  width: 85%;
+  width: 90%;
   height: auto;
 }
 /* Firefox-specific fix for this image */
@@ -72,12 +73,37 @@
   }
 }
 
+@media screen and (max-width: 1920px) {
+  .logos {
+    margin-bottom: 5%;
+  }
+  .overlay_images {
+    left: 0;
+  }
+  .football_character_closeup {
+    width: 82%;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .overlay_images {
+    left: -5%;
+    bottom: -4.5%;
+  }
+  .football_character_closeup {
+    width: 88%;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .mobile_about {
     display: contents;
   }
   .desktop_about {
     display: none;
+  }
+  .gradient_drop {
+    height: 150px;
   }
   .about_content {
     z-index: 5;

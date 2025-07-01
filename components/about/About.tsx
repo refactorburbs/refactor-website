@@ -21,12 +21,12 @@ export default function About () {
         <div className="thin-divider" />
 
         <div className={styles.overlay_images}>
-          <ScrollAnimatedElement directionIn="up" thresholdIn={0.4}>
+          <ScrollAnimatedElement directionIn="up" thresholdIn={0.3}>
             <Image
               src={footballsimCharacters}
               alt="Football Simulator character closeups"
-              width={2311}
-              height={1274}
+              width={3840}
+              height={2160}
               className={styles.football_character_closeup}
             />
           </ScrollAnimatedElement>

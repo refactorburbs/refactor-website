@@ -4,14 +4,16 @@
   --color-primary: #0D0F16;
   --color-secondary: #FFAD00;
   --section-bg-image: url("https://refactor-games.github.io/cdn/images/section-bg.webp");
+  --content-padding: 0 100px;
+  --divider-height: 75px;
   color: white;
-  --xxx-large: 86px;
-  --xx-large: 64px;
-  --x-large: 32px;
-  --large: 28px;
-  --medium: 24px;
-  --small: 18px;
-  --x-small: 16px;
+  --xxx-large: 140px;
+  --xx-large: 115px;
+  --x-large: 48px;
+  --large: 40px;
+  --medium: 32px;
+  --small: 24px;
+  --x-small: 22px;
 }
 
 html,
@@ -35,7 +37,6 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  /* font-family: "DIN Condensed", "Arial Narrow", "Liberation Sans Narrow", sans-serif; */
   font-family: "din-condensed", "Arial Narrow", "Liberation Sans Narrow", sans-serif;
   font-weight: 200;
 }
@@ -118,7 +119,7 @@ input {
 .about-content-before-animation .about-logos {
   opacity: 0;
   transform: translateY(60px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
   will-change: opacity, transform;
 }
 
@@ -149,23 +150,9 @@ input {
   }
 }
 
- /* Initial state - helmet in starting position */
-.football-helmet {
-  transition: all 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
-}
-
-/* Animated state - helmet flies off to the left */
-.flying-helmet-animation {
-  transform: translate(-62vw, 38vw) rotate(-43deg);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-delay: 0.2s;
-}
-
-
 /* ---------------Global, re-usable classes ----------------*/
 .section-content-wrapper {
-  padding: 3rem 60px;
+  padding: 3rem 100px;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -173,12 +160,13 @@ input {
 }
 
 .thin-divider {
-  height: 2px;
+  height: 4px;
   width: 100%;
   background: radial-gradient(
     var(--color-secondary),
     transparent 60%
   );
+  z-index: 2;
 }
 
 .gradient-text-multiline {
@@ -203,12 +191,32 @@ input {
 }
 
 /* ------------- responsiveness ----------------- */
+@media screen and (max-width: 1920px) {
+  :root {
+    --content-padding: 0 75px;
+    --divider-height: 60px;
+    --xxx-large: 86px;
+    --xx-large: 64px;
+    --x-large: 32px;
+    --large: 28px;
+    --medium: 24px;
+    --small: 18px;
+    --x-small: 16px;
+  }
+  .section-content-wrapper {
+    padding: 3rem 75px;
+  }
+  .thin-divider {
+    height: 2px;
+  }
+}
+
 @media screen and (max-width: 1400px) {
-  .flying-helmet-animation {
-    transform: translate(-60vw, 48vw) rotate(-43deg);
-    transition: all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition-delay: 0.6s;
-    opacity: 1;
+  :root {
+    --content-padding: 0 60px;
+  }
+  .section-content-wrapper {
+    padding: 3rem 60px;
   }
 }
 
@@ -219,15 +227,13 @@ input {
 }
 
 @media screen and (max-width: 950px) {
-  .gradient-text-multiline {
-    font-size: var(--large);
+  :root {
+    --content-padding: 0 50px;
+    --x-large: 28px;
   }
   .section-content-wrapper {
     padding: 2rem 50px;
     gap: 2rem;
-  }
-  h2 {
-    font-size: var(--large);
   }
   button span {
     font-size: var(--small);
@@ -235,29 +241,31 @@ input {
 }
 
 @media screen and (max-width: 820px) {
+  :root {
+    --xxx-large: 64px;
+  }
   .gradient-text-multiline {
     font-size: var(--medium);
-  }
-  h1 {
-    font-size: var(--xx-large);
   }
 }
 
 @media screen and (max-width: 700px) {
-  h1 {
-    font-size: xxx-large;
-  }
-  h2 {
-    font-size: var(--medium);
+  :root {
+    --content-padding: 0 25px;
+    --divider-height: 50px;
+    --xxx-large: 32px;
+    --x-large: 24px;
+    /* --xx-large: 64px;
+    --large: 28px;
+    --medium: 24px;
+    --small: 18px;
+    --x-small: 16px; */
   }
   button span {
     font-size: var(--x-small);
   }
-  .gradient-text-multiline {
-    font-size: var(--medium);
-  }
   .section-content-wrapper {
-    padding: 2rem 20px;
+    padding: 2rem 25px;
     gap: 1.5rem;
   }
 }
