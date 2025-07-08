@@ -32,9 +32,10 @@
 
 .building_text {
   position: absolute;
-  top: 20%;
-  z-index: 1;
+  top: calc(56.25vw * 0.18); /* 18% of the height, keeping 16:9 responsiveness */
+  z-index: 5;
   letter-spacing: 0.3rem;
+  font-size: calc(56.25vw * 0.08); /* because the height is changing on vw, need to use the same height calc */
 }
 
 .image_positioner {
@@ -67,6 +68,29 @@
   height: auto;
 }
 
+@media screen and (max-width: 1500px) {
+  .building_text {
+    top: calc(56.25vw * 0.2);
+    letter-spacing: 0.1rem;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .about {
+    height: 62vw;
+  }
+  .gradient_drop {
+    height: 250px;
+  }
+  .building_text {
+    top: calc(62vw * 0.25);
+    letter-spacing: 0;
+  }
+  .image_positioner {
+    bottom: -4.5%;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .mobile_about {
     display: contents;
@@ -74,23 +98,23 @@
   .desktop_about {
     display: none;
   }
-  .gradient_drop {
-    height: 250px;
-  }
-  .image_positioner {
-    bottom: -4.5%;
-  }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
+  .mobile_about h2 {
+    font-size: 18px;
+  }
   .about {
     height: 75vw;
   }
   .gradient_drop {
-    height: 80px;
+    height: 125px;
   }
   .content_wrapper {
-    gap: 1rem;
+    gap: 0.75rem;
+  }
+  .building_text {
+    top: calc(75vw * 0.35);
   }
   .image_positioner {
     bottom: -3.5%;
