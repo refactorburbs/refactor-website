@@ -5,30 +5,36 @@ import { HERO_TEXT } from "@/lib/constants/content.constants";
 
 import styles from "./rotatingHeroText.module.css";
 
-let currentWordIndex = 0;
-
 export default function RotatingHeroText() {
-  const [dynamicWord, setDynamicWord] = useState(HERO_TEXT[currentWordIndex]);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [fadeState, setFadeState] = useState<"fade-in" | "fade-out">("fade-in");
 
-  const chooseNewDynamicWord = () => {
-    currentWordIndex = (currentWordIndex + 1) % HERO_TEXT.length;
-    setDynamicWord(HERO_TEXT[currentWordIndex]);
-  }
+  // Changed this to an interval to handle varying the css class rather than
+  // re-rendering the word via useEffect change/key prop to avoid flickering
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeState("fade-out"); // Start fading out word
 
-  useEffect(function updateDynamicWord() {
-    setTimeout(chooseNewDynamicWord, 3650); // every 4 sec ish
-  }, [dynamicWord]);
+      setTimeout(() => {
+        // After fade-out is complete, change word and fade back in
+        setWordIndex((prev) => (prev + 1) % HERO_TEXT.length);
+        setFadeState("fade-in");
+      }, 500); // match CSS transition duration
+    }, 3650);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className={styles.rotating_hero_text_wrapper}>
       <div className={styles.rotating_hero_text}>
         <h1>
           WE CREATE
-          <br/>
-          <span className={styles.dynamic_word}>
-            {dynamicWord}
+          <br />
+          <span className={`${styles.dynamic_word} ${styles[fadeState]}`}>
+            {HERO_TEXT[wordIndex]}
           </span>
-          <br/>
+          <br />
           GAMES
         </h1>
       </div>
