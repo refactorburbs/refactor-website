@@ -3,7 +3,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Home from "@/components/home/Home";
 import Footer from "@/components/footer/Footer";
 // Lazy load sections below the fold
-const About = dynamic(() => import("@/components/about/About"));
+const About2 = dynamic(() => import("@/components/about/About2"));
 const Games = dynamic(() => import("@/components/games/Games"));
 const Team = dynamic(() => import("@/components/team/Team"));
 const Careers = dynamic(() => import("@/components/careers/Careers"));
@@ -17,7 +17,7 @@ export default function App() {
       <Navbar />
       <main className={styles.main}>
         <Home />
-        <About />
+        <About2 />
         <Games />
         <Team />
         <Careers />

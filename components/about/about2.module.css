@@ -1,0 +1,98 @@
+.mobile_about {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.desktop_about {
+  display: contents;
+  width: 100%;
+  height: 100%;
+}
+
+.about {
+  position: relative;
+  background: url("https://refactor-games.github.io/cdn/images/about-bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 56.25vw; /* 9/16 * 100 = 56.25 for 16:9 aspect ratio*/
+  width: 100%;
+  overflow: visible;
+}
+
+.gradient_drop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 350px;
+  width: 100%;
+  z-index: 1;
+  background: linear-gradient(black, transparent);
+}
+
+.building_text {
+  position: absolute;
+  top: 20%;
+  z-index: 1;
+  letter-spacing: 0.3rem;
+}
+
+.image_positioner {
+  position: absolute;
+  bottom: -5.5%;
+  left: -5%;
+  z-index: 4;
+}
+
+.football_character_closeup {
+  width: 93%;
+  height: auto;
+}
+
+.logos {
+  position: absolute;
+  right: var(--content-gutter);
+  bottom: 25%;
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  gap: 2rem;
+  > span {
+    font-size: var(--large);
+  }
+}
+
+.a16z_logo {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .mobile_about {
+    display: contents;
+  }
+  .desktop_about {
+    display: none;
+  }
+  .gradient_drop {
+    height: 250px;
+  }
+  .image_positioner {
+    bottom: -4.5%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .about {
+    height: 75vw;
+  }
+  .gradient_drop {
+    height: 80px;
+  }
+  .content_wrapper {
+    gap: 1rem;
+  }
+  .image_positioner {
+    bottom: -3.5%;
+  }
+}
