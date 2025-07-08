@@ -40,7 +40,7 @@ export default function About () {
           </ScrollAnimatedElement>
         </div>
 
-        {/* <div className={`about-logos ${styles.logos}`}>
+        <div className={`about-logos ${styles.logos}`}>
           <span>BACKED BY THE BEST:</span>
           <Image
             src={a16z}
@@ -49,7 +49,7 @@ export default function About () {
             height={176}
             className={styles.a16z_logo}
           />
-        </div> */}
+        </div>
       </div>
     </section>
   )
