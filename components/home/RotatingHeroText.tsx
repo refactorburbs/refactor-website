@@ -19,7 +19,7 @@ export default function RotatingHeroText() {
         // After fade-out is complete, change word and fade back in
         setWordIndex((prev) => (prev + 1) % HERO_TEXT.length);
         setFadeState("fade-in");
-      }, 500); // match CSS transition duration
+      }, 250); // match CSS transition duration
     }, 3650);
 
     return () => clearInterval(interval);

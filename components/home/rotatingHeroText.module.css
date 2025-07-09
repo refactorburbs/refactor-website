@@ -14,7 +14,7 @@
 
 .dynamic_word {
   color: var(--color-secondary);
-  transition: opacity 0.5s ease-in-out; /* Match the setTimeout duration */
+  transition: opacity 0.25s ease-in-out; /* Match the setTimeout duration */
 }
 
 /* These control visibility via transition */
