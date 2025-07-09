@@ -1,7 +1,7 @@
 import { ASSETS } from "@/lib/constants/assets.constants";
-import ScrollAnimatedElement from "../ScrollAnimatedElement";
 import DesktopAbout from "./DesktopAbout";
 import MobileAbout from "./MobileAbout";
+import ScrollAnimatedElement from "../ScrollAnimatedElement";
 import Image from "next/image";
 
 import styles from "./about.module.css";
@@ -13,15 +13,14 @@ export default function About () {
     <section id="about" className={styles.about}>
       <div className={styles.gradient_drop} />
 
-      <div className="section-content-wrapper">
+      <div className={`section-content-wrapper ${styles.content_wrapper}`}>
         <div className="thin-divider" />
+
         <DesktopAbout />
         <MobileAbout />
 
-        <div className="thin-divider" />
-
-        <div className={styles.overlay_images}>
-          <ScrollAnimatedElement directionIn="up" thresholdIn={0.3}>
+        <div className={styles.image_positioner}>
+          <ScrollAnimatedElement directionIn="up" directionOut="up" thresholdIn={0.3} thresholdOut={0.7}>
             <Image
               src={footballsimCharacters}
               alt="Football Simulator character closeups"
