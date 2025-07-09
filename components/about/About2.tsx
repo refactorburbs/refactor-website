@@ -8,7 +8,6 @@ import styles from "./about2.module.css";
 import ScrollAnimatedElement from "../ScrollAnimatedElement";
 
 const footballsimCharacters = ASSETS.IMAGES.ABOUT.footballsimCharacters;
-const a16z = ASSETS.IMAGES.ABOUT.a16zLogo;
 
 export default function About () {
   return (
@@ -31,17 +30,6 @@ export default function About () {
               className={styles.football_character_closeup}
             />
           </ScrollAnimatedElement>
-        </div>
-
-        <div className={`about-logos ${styles.logos}`}>
-          <span>BACKED BY THE BEST:</span>
-          <Image
-            src={a16z}
-            alt="A16Z Speedrun logo"
-            width={714}
-            height={176}
-            className={styles.a16z_logo}
-          />
         </div>
       </div>
     </section>

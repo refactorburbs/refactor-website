@@ -53,15 +53,18 @@
   height: auto;
 }
 
-.logos {
+.logos_positioner {
   position: absolute;
   right: calc(var(--content-gutter) - 10px);
   bottom: 25%;
+  width: 20%;
+  z-index: 4;
+}
+
+.logos {
   display: flex;
   flex-direction: column;
-  width: 20%;
   gap: 2rem;
-  z-index: 4;
   > span {
     font-size: var(--large);
   }
@@ -133,9 +136,11 @@
   .image_positioner {
     bottom: -3.5%;
   }
+  .logos_positioner {
+    bottom: 22%;
+  }
   .logos {
     gap: 0.5rem;
-    bottom: 22%;
     > span {
       font-size: 8px;
     }
