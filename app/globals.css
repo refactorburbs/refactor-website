@@ -5,6 +5,7 @@
   --color-secondary: #FFAD00;
   --section-bg-image: url("https://refactor-games.github.io/cdn/images/section-bg.webp");
   --content-padding: 0 100px;
+  --content-gutter: 100px;
   --divider-height: 75px;
   color: white;
   --xxx-large: 140px;
@@ -194,6 +195,7 @@ input {
 @media screen and (max-width: 1920px) {
   :root {
     --content-padding: 0 75px;
+    --content-gutter: 75px;
     --divider-height: 60px;
     --xxx-large: 86px;
     --xx-large: 64px;
@@ -214,6 +216,7 @@ input {
 @media screen and (max-width: 1400px) {
   :root {
     --content-padding: 0 60px;
+    --content-gutter: 60px;
   }
   .section-content-wrapper {
     padding: 3rem 60px;
@@ -229,6 +232,7 @@ input {
 @media screen and (max-width: 950px) {
   :root {
     --content-padding: 0 50px;
+    --content-gutter: 50px;
     --x-large: 28px;
   }
   .section-content-wrapper {
@@ -252,6 +256,7 @@ input {
 @media screen and (max-width: 700px) {
   :root {
     --content-padding: 0 25px;
+    --content-gutter: 25px;
     --divider-height: 50px;
     --xxx-large: 32px;
     --x-large: 24px;
