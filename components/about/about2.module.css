@@ -30,10 +30,13 @@
   background: linear-gradient(black, transparent);
 }
 
-.building_text {
+.building_text_positioner {
   position: absolute;
   top: calc(56.25vw * 0.18); /* 18% of the height, keeping 16:9 responsiveness */
   z-index: 5;
+}
+
+.building_text {
   letter-spacing: 0.3rem;
   font-size: calc(56.25vw * 0.08); /* because the height is changing on vw, need to use the same height calc */
 }
@@ -70,8 +73,10 @@
 }
 
 @media screen and (max-width: 1500px) {
-  .building_text {
+  .building_text_positioner {
     top: calc(56.25vw * 0.2);
+  }
+  .building_text {
     letter-spacing: 0.1rem;
   }
 }
@@ -83,8 +88,10 @@
   .gradient_drop {
     height: 250px;
   }
-  .building_text {
+  .building_text_positioner {
     top: calc(62vw * 0.25);
+  }
+  .building_text {
     letter-spacing: 0;
   }
   .image_positioner {
@@ -120,7 +127,7 @@
   .content_wrapper {
     gap: 0.75rem;
   }
-  .building_text {
+  .building_text_positioner {
     top: calc(75vw * 0.35);
   }
   .image_positioner {

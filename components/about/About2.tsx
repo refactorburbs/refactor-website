@@ -21,13 +21,6 @@ export default function About () {
         <DesktopAbout2 />
         <MobileAbout2 />
 
-        <p className={`gradient-text-multiline ${styles.building_text}`}>
-          BUILDING <br/>
-          THE FUTURE <br/>
-          OF SPORTS <br/>
-          VIDEO GAMES
-        </p>
-
         <div className={styles.image_positioner}>
           <ScrollAnimatedElement directionIn="up" directionOut="up" thresholdIn={0.3} thresholdOut={0.7}>
             <Image
