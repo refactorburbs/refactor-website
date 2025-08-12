@@ -43,13 +43,13 @@ export default function OurDetails() {
                 Address:
               </span>
               <span>
-                3025 Airport Ave, #D, Santa Monica, CA 90405
+                139 S Beverly Dr. Beverly Hills, CA 90212
               </span>
             </p>
           </li>
         </ul>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.1241684300794!2d-118.450490683909!3d34.015023580616045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bafda763ab6f%3A0x28caeacfc85f1c19!2s3025%20Airport%20Ave%2C%20Santa%20Monica%2C%20CA%2090405!5e0!3m2!1sen!2sus!4v1660682037815!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.1320520152967!2d-118.3994361!3d34.066129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bbf937d1899d%3A0x84406bc711c11fb9!2s139%20S%20Beverly%20Dr%2C%20Beverly%20Hills%2C%20CA%2090212!5e0!3m2!1sen!2sus!4v1755015758337!5m2!1sen!2sus"
           width="420"
           height="315"
           loading="lazy"
