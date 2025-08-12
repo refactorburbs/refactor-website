@@ -34,8 +34,9 @@
   position: relative;
   top: 100%;
   box-shadow: 0px 0px 20px var(--color-secondary);
-  transition: width 1.3s linear;
-  animation: progressFill 1.3s linear;
+  /* Have animation duration match length of video to simulate loading */
+  transition: width 3s linear;
+  animation: progressFill 3s ease-in-out;
 }
 
 @keyframes progressFill {
