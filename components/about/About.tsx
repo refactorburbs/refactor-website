@@ -20,7 +20,7 @@ export default function About () {
         <MobileAbout />
 
         <div className={styles.image_positioner}>
-          <ScrollAnimatedElement directionIn="up" directionOut="up" thresholdIn={0.3} thresholdOut={0.7}>
+          <ScrollAnimatedElement directionIn="up" directionOut="up" thresholdIn={0.2} thresholdOut={0.7}>
             <Image
               src={footballsimCharacters}
               alt="Football Simulator character closeups"

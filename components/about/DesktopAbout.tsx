@@ -17,7 +17,7 @@ export default function DesktopAbout () {
             thresholdIn={0.8}
             directionOut="up"
             thresholdOut={0.2}
-            rootMargin="0px 0px -250px 0px"
+            rootMargin="0px 0px -200px 0px"
           >
             <p className={`gradient-text-multiline ${styles.building_text}`}>
               BUILDING <br/>

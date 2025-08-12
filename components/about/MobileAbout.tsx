@@ -31,10 +31,10 @@ export default function MobileAbout () {
         <div className={styles.logos_positioner}>
           <ScrollAnimatedElement
             directionIn="up"
-            thresholdIn={0.9}
+            thresholdIn={0.7}
             directionOut="up"
-            thresholdOut={0.25}
-            rootMargin="0px 0px -100px 0px"
+            thresholdOut={0.3}
+            rootMargin="0px 0px -50px 0px"
           >
             <div className={`${styles.logos}`}>
               <span>BACKED BY THE BEST:</span>
