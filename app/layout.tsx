@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { ASSETS } from "@/lib/constants/assets.constants";
 config.autoAddCss = false;
 
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://refactorgames.com"),
   title: "Refactor Games",
   description: "We make experimental, emergent sports video games.",
   authors: [{ name: "Refactor Games" }],
@@ -20,11 +22,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     images: [
-      { //@TODO update this to cdn full link and make it a webp
-        url: "/social-image.jpg",
+      {
+        url: ASSETS.IMAGES.SOCIAL_MEDIA.standardSize,
         width: 1200,
         height: 630,
-        type: "image/jpeg",
+        type: "image/webp",
+      },
+      {
+        url: ASSETS.IMAGES.SOCIAL_MEDIA.largeSize,
+        width: 1920,
+        height: 1080,
+        type: "image/webp",
       },
     ],
   },

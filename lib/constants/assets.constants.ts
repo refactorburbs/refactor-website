@@ -19,5 +19,9 @@ export const ASSETS = {
       footballsimHead: "https://refactor-games.github.io/cdn/images/football-sim-head.webp",
       footballsimHelmet: "https://refactor-games.github.io/cdn/images/football-sim-helmet.webp",
     },
+    SOCIAL_MEDIA: {
+      standardSize: "https://refactor-games.github.io/cdn/images/social-image-1200x630.webp",
+      largeSize: "https://refactor-games.github.io/cdn/images/social-image-1920x1080.webp"
+    }
   },
 } as const;
