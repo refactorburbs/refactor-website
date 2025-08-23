@@ -31,15 +31,6 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter
-  twitter: {
-    card: "summary_large_image",
-    site: "@refactorgames",
-    title: "Refactor Games",
-    description: "We make experimental, emergent sports video games.",
-    images: [ASSETS.IMAGES.SOCIAL_MEDIA.standardSize],
-  },
-
   // SEO
   robots: {
     index: true,
