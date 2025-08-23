@@ -27,23 +27,17 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/webp",
-      },
-      {
-        url: ASSETS.IMAGES.SOCIAL_MEDIA.largeSize,
-        width: 1920,
-        height: 1080,
-        type: "image/webp",
-      },
+      }
     ],
   },
 
   // Twitter
-  twitter: { // @TODO update social image here too
+  twitter: {
     card: "summary_large_image",
     site: "@refactorgames",
     title: "Refactor Games",
     description: "We make experimental, emergent sports video games.",
-    images: ["/social-image.jpg"],
+    images: [ASSETS.IMAGES.SOCIAL_MEDIA.standardSize],
   },
 
   // SEO
