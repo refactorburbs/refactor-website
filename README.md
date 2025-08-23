@@ -13,6 +13,7 @@ This repository contains the source code for the Refactor Games company website 
 
 - [🚀 Quick Start](#-quick-start)
 - [📝 Making Changes](#-making-changes)
+-   [Admin Interface](#admin-interface)
   - [Creating a New Feature or Fix](#creating-a-new-feature-or-fix)
 - [🗄️ Database Management](#️-database-management)
   - [Viewing the Database](#viewing-the-database)
@@ -70,6 +71,20 @@ Your website will be available at `http://localhost:3000`
 <br>
 
 ## 📝 Making Changes
+
+### Admin Interface
+
+You can make an account on the [Admin Interface](https://www.refactorgames.com/admin) with your name, email, and pre-defined `Admin Code`:
+<details>
+  <summary>hint*</summary>
+  <p>Same as the intern password for Perforce</p>
+</details>
+
+<img width="1802" height="916" alt="admin-1" src="https://github.com/user-attachments/assets/849af80b-7d73-4f2a-82ed-9674f565b76e" />
+
+<br>
+
+The `Games` tab will show all of our games that are visible on the website, pulled from the SteamAPI
 
 ### Creating a New Feature or Fix
 
