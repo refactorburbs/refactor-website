@@ -34,7 +34,7 @@ export default function AdminPage() {
         </p>
 
         <h2>How to Manage Assets (Images/Videos)</h2>
-        <p>Assets are hosted on a GitHub repository in the Refactor Organization account and
+        <div>Assets are hosted on a GitHub repository in the Refactor Organization account and
           delivered via CDN. See this
           <a
             href="https://github.com/Refactor-Games/cdn/blob/main/README.md"
@@ -48,7 +48,7 @@ export default function AdminPage() {
             <li>Update or add new content</li>
             <li>See where assets are referenced in the source code</li>
           </ul>
-        </p>
+        </div>
 
         <h2>How to Change the Source Code</h2>
         <p>See this

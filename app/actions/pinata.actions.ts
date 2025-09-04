@@ -27,7 +27,7 @@ async function extractFileIdFromPinataUrl(url: string): Promise<string | null> {
     }
 
     const cid = urlParts[ipfsIndex + 1];
-    const response = await pinata.files.public.list();
+    const response = await pinata.files.public.list().limit(500);
 
     if (!response.files) {
       console.log("No files found in Pinata");
@@ -52,6 +52,7 @@ async function extractFileIdFromPinataUrl(url: string): Promise<string | null> {
 export async function deleteFileFromPinata(resumeUrl: string): Promise<boolean> {
   try {
     const fileId = await extractFileIdFromPinataUrl(resumeUrl);
+    console.log("Extracted file ID from resume URL:", fileId);
 
     if (!fileId) {
       console.warn("Could not extract CID from resume URL, skipping Pinata deletion:", resumeUrl);

@@ -175,18 +175,21 @@ export async function deleteJobApplication(appId: number) {
 
       if (deletedFromPinata) {
         console.log("✅ Resume file deleted from Pinata");
+        await prisma.jobApplication.delete({
+          where: { id: appId }
+        });
+        console.log("✅ Delete job application: Success");
+        revalidatePath("/admin/applications");
+        return { success: true }
       } else {
         console.log("⚠️ Resume file deletion from Pinata failed or skipped");
+        await prisma.jobApplication.delete({
+          where: { id: appId }
+        })
+        revalidatePath("/admin/applications");
       }
     }
-
-    await prisma.jobApplication.delete({
-      where: { id: appId }
-    })
-
-    console.log("✅ Delete job application: Success");
-    revalidatePath("/admin/applications");
-    return { success: true }
+    return { success: false, message: "Failed to delete job application from Pinata" }
 
   } catch (error) {
     console.error("❌ Delete job application error:", error);

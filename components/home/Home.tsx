@@ -18,7 +18,6 @@ export default function Home() {
           muted
           loop
           playsInline
-          preload="eager"
           className={styles.video_bg}
         >
           <source
