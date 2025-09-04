@@ -120,9 +120,13 @@ export async function submitJobApplication(
 
   } catch (error) {
     console.error("Error submitting application:", error);
+    // return {
+    //   success: false,
+    //   message: "There was an error submitting your application. Please try again.",
+    // };
     return {
       success: false,
-      message: "There was an error submitting your application. Please try again.",
+      message: "Due to the sheer number of applications, further submissions are paused. Please check back later or reach out to us directly.",
     };
   }
 }
