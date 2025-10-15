@@ -11,7 +11,7 @@ const footballSimHead = ASSETS.IMAGES.CAREERS.footballsimHead;
 const footballSimHelmet = ASSETS.IMAGES.CAREERS.footballsimHelmet;
 
 export default async function Careers() {
-  const jobPosts = await getAllJobPostings();
+  const jobPosts = await getAllJobPostings(false);
   return (
     <section className={styles.careers}>
       <div className={styles.gradient_drop} />

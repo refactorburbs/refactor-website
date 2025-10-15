@@ -7,6 +7,10 @@
   justify-content: space-between;
 }
 
+.delisted {
+  filter: opacity(0.25);
+}
+
 .job_header {
   display: flex;
   gap: 1rem;

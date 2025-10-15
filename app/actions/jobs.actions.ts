@@ -20,9 +20,11 @@ const jobPostingSchema = z.object({
 });
 // -----------------------------------------------------------------------------------
 
-export async function getAllJobPostings() {
+export async function getAllJobPostings(includeDelisted: boolean = true) {
+  const whereClause = includeDelisted ? {} : { delisted: false };
   try {
     const jobPostings = await prisma.jobPosting.findMany({
+      where: whereClause,
       orderBy: { createdAt: "desc" }
     })
     return jobPostings;
@@ -204,6 +206,21 @@ export async function updateJobPosting(
   }
 
   redirect("/admin/jobs");
+}
+
+export async function toggleJobUnlisted(jobId: number, isUnlisted: boolean) {
+  try {
+    await prisma.jobPosting.update({
+      where: { id: jobId },
+      data: {
+        delisted: !isUnlisted
+      }
+    });
+  } catch (error) {
+    console.error("Failed to updated job delist status: ", error);
+  }
+
+  revalidatePath("/admin/jobs");
 }
 
 export async function deleteJobPosting(jobId: number) {
