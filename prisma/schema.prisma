@@ -73,6 +73,7 @@ model JobPosting {
   pluses           String[]
   createdAt        DateTime         @default(now())
   updatedAt        DateTime         @updatedAt
+  delisted         Boolean          @default(false)
   JobApplication   JobApplication[] // Virtual relation field for FK in JobApplication
 }
 

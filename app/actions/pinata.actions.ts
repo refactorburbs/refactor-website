@@ -27,7 +27,7 @@ async function extractFileIdFromPinataUrl(url: string): Promise<string | null> {
     }
 
     const cid = urlParts[ipfsIndex + 1];
-    const response = await pinata.files.public.list().limit(500);
+    const response = await pinata.files.public.list().limit(9999);
 
     if (!response.files) {
       console.log("No files found in Pinata");

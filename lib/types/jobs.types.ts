@@ -8,6 +8,7 @@ export interface JobPost {
   responsibilities: string[];
   requirements: string[];
   pluses: string[];
+  delisted: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

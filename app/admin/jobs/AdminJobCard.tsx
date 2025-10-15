@@ -7,6 +7,7 @@ import { getJobApplicationCount } from "@/app/actions/applications.actions";
 import { timeAgo } from "@/lib/utils/general.utils";
 
 import styles from "./adminJobCard.module.css";
+import UnlistJobButton from "./UnlistJobButton";
 
 interface AdminJobCardProps {
   job: JobPost;
@@ -15,7 +16,7 @@ interface AdminJobCardProps {
 export default async function AdminJobCard({ job }: AdminJobCardProps) {
   const numApplicants = await getJobApplicationCount(job.id);
   return (
-    <div className={styles.admin_job_card}>
+    <div className={`${job.delisted ? styles.delisted : ""} ${styles.admin_job_card}`}>
       <div className={styles.job_info}>
         <div className={styles.job_header}>
           <h2>{job.title}</h2>
@@ -26,6 +27,11 @@ export default async function AdminJobCard({ job }: AdminJobCardProps) {
       </div>
 
       <div className={styles.job_buttons}>
+        <UnlistJobButton
+          jobId={job.id}
+          jobTitle={job.title}
+          isUnlisted={job.delisted}
+        />
         <Link
           href={`/admin/jobs/edit/${job.id}`}
           className={styles.edit_button}
