@@ -221,6 +221,7 @@ export async function toggleJobUnlisted(jobId: number, isUnlisted: boolean) {
   }
 
   revalidatePath("/admin/jobs");
+  revalidatePath("/");
 }
 
 export async function deleteJobPosting(jobId: number) {
