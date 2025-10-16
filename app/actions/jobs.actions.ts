@@ -128,6 +128,7 @@ export async function createJobPosting(state: JobPostingFormState, formData: For
     console.log("✅ Create job posting: Success");
 
     // Revalidate the jobs page to show new data
+    revalidatePath("/");
     revalidatePath("/admin/jobs");
 
   } catch (error) {
@@ -205,6 +206,7 @@ export async function updateJobPosting(
     }
   }
 
+  revalidatePath("/");
   redirect("/admin/jobs");
 }
 
