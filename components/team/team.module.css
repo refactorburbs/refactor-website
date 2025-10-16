@@ -52,6 +52,7 @@
 }
 
 .team_image {
+  display: inherit;
   position: relative;
   overflow: hidden;
   border-radius: 8px;

@@ -46,10 +46,13 @@ export default function Team() {
           </ScrollAnimatedElement>
 
           <ScrollAnimatedElement directionIn="left">
-            <div
+            <a
               className={`gradient-container ${styles.team_image}`}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              href={teamSmiling}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Image
                 src={isHovered ? teamSilly : teamSmiling}
@@ -58,7 +61,7 @@ export default function Team() {
                 height={1920}
                 className={styles.responsive_photo}
               />
-            </div>
+            </a>
           </ScrollAnimatedElement>
         </div>
         <div className="thin-divider" />
