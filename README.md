@@ -224,8 +224,8 @@ The website is automatically deployed to [refactorgames.com](https://refactorgam
 Our domain `refactorgames.com` is managed through **GoDaddy** with the following DNS records:
 
 **Vercel Connection:**
-- A record → Points to Vercel's servers
-- CNAME → Points to our Vercel project
+- A record → `@` Points to Vercel's servers `216.198.79.193`
+- CNAME → `www` Points to our Vercel project `9c11e346c459fece.vercel-dns-017.com`
 
 **Email (Google Workspace):**
 - 5 MX records for email delivery
