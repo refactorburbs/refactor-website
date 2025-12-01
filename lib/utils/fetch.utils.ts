@@ -44,9 +44,9 @@ export async function fetchSteamGames(): Promise<SteamGameData[]> {
         return {
           id: game.steamId,
           name: game.name,
-          trailer: forceHttps(data[game.steamId].data.movies[0].mp4.max),
+          trailer: forceHttps(data[game.steamId].data.movies[0].hls_h264) || "",
           storePage: game.storePage,
-          headerImage: data[game.steamId].data.header_image,
+          headerImage: data[game.steamId].data.header_image || "/image-not-found.png",
           tags: data[game.steamId].data.genres?.map((genre) => genre.description) || [],
           shortDescription: data[game.steamId].data.short_description,
           longDescription: scrubHTMLEncodedString(data[game.steamId].data.detailed_description),

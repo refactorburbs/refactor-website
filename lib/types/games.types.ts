@@ -28,29 +28,30 @@ export interface SteamGameResponseData {
       steam_appid: number;
       required_age: number;
       is_free: boolean;
+      dlc?: number[];
       detailed_description: string;
       about_the_game: string;
       short_description: string;
       supported_languages: string;
       header_image: string;
-      capsule_image: string;
-      capsule_imagev5: string;
-      website: string;
-      pc_requirements: {
+      capsule_image?: string;
+      capsule_imagev5?: string;
+      website?: string;
+      pc_requirements?: {
         minimum?: string;
         recommended?: string;
       };
-      mac_requirements: {
+      mac_requirements?: {
         minimum?: string;
         recommended?: string;
-      } | [];
-      linux_requirements: {
+      };
+      linux_requirements?: {
         minimum?: string;
         recommended?: string;
-      } | [];
+      };
       developers: string[];
       publishers: string[];
-      price_overview: {
+      price_overview?: {
         currency: string;
         initial: number;
         final: number;
@@ -100,14 +101,9 @@ export interface SteamGameResponseData {
         id: number;
         name: string;
         thumbnail: string;
-        webm: {
-          "480": string;
-          max: string;
-        };
-        mp4: {
-          "480": string;
-          max: string;
-        };
+        dash_av1: string;
+        dash_h264: string;
+        hls_h264: string;
         highlight: boolean;
       }>;
       recommendations: {
