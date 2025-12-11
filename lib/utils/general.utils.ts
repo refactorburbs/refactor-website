@@ -1,5 +1,27 @@
 import { Credentials } from "../types/auth.types";
 
+interface JobApplication {
+  id: number
+  firstName: string
+  lastName: string
+  email: string
+  location: string
+  salary: number
+  startDate: Date
+  portfolio?: string | null
+  linkedIn?: string | null
+  other?: string | null
+  resume: string
+  starred: boolean
+  jobPostingId: number
+  jobPosting: {
+    id: number
+    title: string
+  }
+  createdAt: Date
+  updatedAt: Date
+}
+
 /**
  * Ensures a URL uses HTTPS instead of HTTP.
  *
@@ -74,6 +96,40 @@ export function timeAgo(date: Date | string): string {
   }
 
   return "just now";
+}
+
+export function availabilityIn(app: JobApplication): string {
+  const AUTO_FILLED_START_DATE = new Date("2025-12-11T02:13:38.871Z");
+  const start = new Date(app.startDate);
+  const now = new Date();
+
+  // 1. If startDate was auto-filled (from updating the database)
+  if (start.getTime() === AUTO_FILLED_START_DATE.getTime()) {
+    return "not specified";
+  }
+
+  // 2. Compute time difference (future)
+  const diffMs = start.getTime() - now.getTime();
+
+  // If it's already passed or within ~1 week
+  const oneWeekMs = 7 * 24 * 60 * 60 * 1000;
+  if (diffMs <= oneWeekMs) {
+    return "now";
+  }
+
+  // 3. Convert the future difference
+  const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+  const diffWeeks = Math.floor(diffDays / 7);
+  const diffMonths = Math.floor(diffDays / 30); // approximation is ok for UI
+
+  // If under 1 month → use weeks
+  if (diffDays < 30) {
+    return `in ${diffWeeks} week${diffWeeks > 1 ? "s" : ""}`;
+  }
+
+  // 4. Otherwise → use months
+  const months = diffMonths;
+  return `in ${months} month${months > 1 ? "s" : ""}`;
 }
 
 export function getCredentials(): Credentials {

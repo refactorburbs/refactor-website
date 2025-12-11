@@ -23,7 +23,7 @@
   gap: 0.5rem;
 }
 
-.applicant_name {
+.applicant_name{
   color: white;
   font-size: 1.25rem;
   display: flex;
@@ -36,6 +36,18 @@
   color: #bebebe;
   font-size: 0.9rem;
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  >.briefcase_icon {
+    color: white;
+  }
+}
+
+.job_fit_item {
+  margin: 0;
+  display: flex;
+  color: bisque;
+  font-size: 0.9rem;
   align-items: center;
   gap: 0.5rem;
   >.briefcase_icon {
