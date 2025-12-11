@@ -40,9 +40,14 @@ export async function submitContactUsEmail(
   } catch (error) {
     if (error instanceof z.ZodError) {
       const errors: Record<string, string> = {};
-      error.errors.forEach(err => {
-        errors[err.path[0]] = err.message;
+
+      error.issues.forEach(issue => {
+        const field = issue.path[0];
+        if (typeof field == "string") {
+          errors[field] = issue.message;
+        }
       });
+
       return { success: false, errors };
     }
     console.log(error)
