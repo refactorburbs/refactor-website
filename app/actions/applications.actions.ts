@@ -78,13 +78,16 @@ export async function submitJobApplication(
     const firstName = formData.get("firstName") as string;
     const lastName = formData.get("lastName") as string;
     const email = formData.get("email") as string;
+    const location = formData.get("location") as string;
+    const salary = formData.get("salary") as string;
+    const startDate = formData.get("startDate") as string;
     const portfolio = formData.get("portfolio") as string;
     const linkedIn = formData.get("linkedIn") as string;
     const other = formData.get("other") as string;
     const resumeFile = formData.get("resume") as File;
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !resumeFile || resumeFile.size === 0) {
+    if (!firstName || !lastName || !email || !resumeFile || !location || !salary || resumeFile.size === 0) {
       return {
         success: false,
         message: "Please fill in all required fields",
@@ -92,7 +95,20 @@ export async function submitJobApplication(
           ...((!firstName) && { firstName: ["First name is required"] }),
           ...((!lastName) && { lastName: ["Last name is required"] }),
           ...((!email) && { email: ["Email is required"] }),
+          ...((!location) && { location: ["Helps with time zone collaboration"] }),
+          ...((!salary) && { salary: ["Salary expectations are required"] }),
           ...((!resumeFile || resumeFile.size === 0) && { resume: ["Resume is required"] }),
+        }
+      };
+    }
+
+    const salaryValue = Number(salary);
+    if (salaryValue == 0 || isNaN(salaryValue)) {
+      return {
+        success: false,
+        message: "Please correct the errors",
+        errors: {
+          ...({ salary: ["Please enter a number greater than 0"] })
         }
       };
     }
@@ -105,6 +121,9 @@ export async function submitJobApplication(
         firstName,
         lastName,
         email,
+        location,
+        salary: salaryValue,
+        startDate: new Date(startDate),
         ...(portfolio && { portfolio }),
         ...(linkedIn && { linkedIn }),
         ...(other && { other }),
@@ -120,14 +139,14 @@ export async function submitJobApplication(
 
   } catch (error) {
     console.error("Error submitting application:", error);
-    // return {
-    //   success: false,
-    //   message: "There was an error submitting your application. Please try again.",
-    // };
     return {
       success: false,
-      message: "Due to the sheer number of applications, further submissions are paused. Please check back later or reach out to us directly.",
+      message: "There was an unknown error submitting your application",
     };
+    // return {
+    //   success: false,
+    //   message: "Due to the sheer number of applications, further submissions are paused. Please check back later or reach out to us directly.",
+    // };
   }
 }
 

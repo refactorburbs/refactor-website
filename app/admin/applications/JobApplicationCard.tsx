@@ -1,15 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLinkAlt, faUser, faEnvelope, faBriefcase } from "@fortawesome/free-solid-svg-icons";
-
-import styles from "./jobApplicationCard.module.css";
+import { faExternalLinkAlt, faUser, faEnvelope, faBriefcase, faEarthAmericas, faSackDollar } from "@fortawesome/free-solid-svg-icons";
 import StarFavoriteButton from "./StarFavoriteButton";
 import DeleteApplicationButton from "./DeleteApplicationButton";
+
+import styles from "./jobApplicationCard.module.css";
+import { availabilityIn, timeAgo } from "@/lib/utils/general.utils";
 
 interface JobApplication {
   id: number
   firstName: string
   lastName: string
   email: string
+  location: string
+  salary: number
+  startDate: Date
   portfolio?: string | null
   linkedIn?: string | null
   other?: string | null
@@ -30,6 +34,8 @@ interface JobApplicationCardProps {
 
 export default function JobApplicationCard({ application }: JobApplicationCardProps) {
   const fullName = `${application.firstName} ${application.lastName}`
+  const applicantStartDate = availabilityIn(application);
+  const startDateNotAutofilled = applicantStartDate !== "not specified";
 
   return (
     <div className={styles.application_card}>
@@ -46,6 +52,13 @@ export default function JobApplicationCard({ application }: JobApplicationCardPr
             Applied for: {application.jobPosting.title}
           </p>
 
+          {application.location &&
+            <p className={styles.job_fit_item}>
+              <FontAwesomeIcon icon={faEarthAmericas} className={styles.briefcase_icon}/>
+              {application.location}
+            </p>
+          }
+
           <div className={styles.contact_info}>
             <div className={styles.contact_item}>
               <FontAwesomeIcon icon={faEnvelope} />
@@ -53,7 +66,14 @@ export default function JobApplicationCard({ application }: JobApplicationCardPr
                 {application.email}
               </a>
             </div>
+            {application.salary > 0 &&
+              <p className={styles.job_fit_item}>
+                <FontAwesomeIcon icon={faSackDollar} className={styles.briefcase_icon}/>
+                {application.salary.toLocaleString("en-US")}
+              </p>
+            }
           </div>
+
         </div>
 
         <StarFavoriteButton applicationId={application.id} isStarred={application.starred}/>
@@ -102,7 +122,8 @@ export default function JobApplicationCard({ application }: JobApplicationCardPr
       </div>
 
       <div className={styles.application_meta}>
-        <span>Applied: {application.createdAt.toLocaleDateString()}</span>
+        <span>Applied: {application.createdAt.toLocaleDateString()} ( {timeAgo(application.createdAt)} )</span>
+        {startDateNotAutofilled && <span>Available: {application.startDate.toLocaleDateString()} ( {applicantStartDate} )</span>}
         <DeleteApplicationButton applicationId={application.id}/>
       </div>
     </div>

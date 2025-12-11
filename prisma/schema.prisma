@@ -82,6 +82,9 @@ model JobApplication {
   firstName    String
   lastName     String
   email        String     @unique
+  location     String     @default("")
+  salary       Int        @default(0)
+  startDate    DateTime   @default(now())
   portfolio    String?
   linkedIn     String?
   other        String?

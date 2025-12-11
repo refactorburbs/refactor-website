@@ -7,7 +7,11 @@ import styles from "./applicationForm.module.css";
 
 export default function ApplicationForm({ jobId }: { jobId: number }) {
   const [state, action, isPending] = useActionState(submitJobApplication, null);
-
+  const todaysDate = new Date().toISOString().split("T")[0];
+  const oneYearFromToday = todaysDate.replace(
+    /^\d{4}/,
+    (year) => (parseInt(year) + 1).toString()
+  );
   return (
     <form action={action}>
       {/* Hidden input to include jobId in form data */}
@@ -70,6 +74,70 @@ export default function ApplicationForm({ jobId }: { jobId: number }) {
             </div>
           )}
         </div>
+      </div>
+
+      <div className={styles.application_section_divider}>
+        <h3>Position Fit:</h3>
+        <div className="thin-divider" />
+      </div>
+
+      <div className={styles.application_section}>
+        <div className={styles.input_label_wrapper}>
+          <label htmlFor="location">
+            Location/Region *
+          </label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="Santa Monica, CA"
+            className={`${styles.input_field} gradient-container`}
+          />
+          {state?.errors?.location && (
+            <div style={{ color: "indianRed", fontSize: "0.875rem" }}>
+              {state.errors.location[0]}
+            </div>
+          )}
+        </div>
+
+        <div className={styles.input_label_wrapper}>
+          <label htmlFor="salary">
+            Desired Annual Salary *
+          </label>
+          <input
+            type="number"
+            id="salary"
+            name="salary"
+            placeholder="Non Zero Value"
+            className={`${styles.input_field} gradient-container`}
+          />
+          {state?.errors?.salary && (
+            <div style={{ color: "indianRed", fontSize: "0.875rem" }}>
+              {state.errors.salary[0]}
+            </div>
+          )}
+        </div>
+
+        <div className={styles.input_label_wrapper}>
+          <label htmlFor="startDate">
+            Start Date Availability
+          </label>
+          <input
+            type="date"
+            id="startDate"
+            name="startDate"
+            defaultValue={todaysDate}
+            min={todaysDate}
+            max={oneYearFromToday}
+            className={`${styles.input_field} gradient-container`}
+          />
+          {state?.errors?.salary && (
+            <div style={{ color: "indianRed", fontSize: "0.875rem" }}>
+              {state.errors.salary[0]}
+            </div>
+          )}
+        </div>
+
       </div>
 
       <div className={styles.application_section_divider}>

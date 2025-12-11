@@ -20,6 +20,9 @@ interface JobApplication {
   firstName: string
   lastName: string
   email: string
+  location: string
+  salary: number
+  startDate: Date
   portfolio?: string | null
   linkedIn?: string | null
   other?: string | null
