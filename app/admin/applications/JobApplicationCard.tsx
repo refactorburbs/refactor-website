@@ -34,6 +34,8 @@ interface JobApplicationCardProps {
 
 export default function JobApplicationCard({ application }: JobApplicationCardProps) {
   const fullName = `${application.firstName} ${application.lastName}`
+  const applicantStartDate = availabilityIn(application);
+  const startDateNotAutofilled = applicantStartDate !== "not specified";
 
   return (
     <div className={styles.application_card}>
@@ -121,7 +123,7 @@ export default function JobApplicationCard({ application }: JobApplicationCardPr
 
       <div className={styles.application_meta}>
         <span>Applied: {application.createdAt.toLocaleDateString()} ( {timeAgo(application.createdAt)} )</span>
-        <span>Available: {application.startDate.toLocaleDateString()} ( {availabilityIn(application)} )</span>
+        {startDateNotAutofilled && <span>Available: {application.startDate.toLocaleDateString()} ( {applicantStartDate} )</span>}
         <DeleteApplicationButton applicationId={application.id}/>
       </div>
     </div>
