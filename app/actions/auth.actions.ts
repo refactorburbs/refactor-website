@@ -1,6 +1,6 @@
 "use server";
 
-import { ADMIN_CODE } from "@/lib/constants/auth.constants";
+import { ADMIN_CODE, ALLOWED_EMAILS } from "@/lib/constants/auth.constants";
 import prisma from "@/lib/prisma";
 import { createSession, deleteSession } from "@/lib/session";
 import { AuthFormState } from "@/lib/types/forms.types";
@@ -16,7 +16,7 @@ const loginSchema = z.object({
 
 const signupSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.email("Invalid email address").refine((email) => email.toLowerCase().endsWith("@refactorgames.com"), { message: "Unauthorized" }),
+  email: z.email("Invalid email address").refine((email) => email.toLowerCase().endsWith("@refactorgames.com"), { message: "Must be a valid Refactor Games email" }),
   password: z.string().min(5, "Password must be at least 5 characters"),
   confirmpassword: z.string(),
   code: z.string().min(1, "Admin code is required"),
@@ -43,6 +43,14 @@ export async function signup(state: AuthFormState, formData: FormData): Promise<
   }
 
   const { name, email, password, code } = validatedFields.data
+
+  if (!ALLOWED_EMAILS.has(email.toLowerCase())) {
+    return {
+      errors: {
+        email: ["This email is not authorized to create an account"],
+      },
+    };
+  }
 
   // People can only sign up if they have a valid Admin code
   if (code !== ADMIN_CODE) {
