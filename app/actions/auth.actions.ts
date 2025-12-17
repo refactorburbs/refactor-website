@@ -17,7 +17,7 @@ const loginSchema = z.object({
 const signupSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.email("Invalid email address").refine((email) => email.toLowerCase().endsWith("@refactorgames.com"), { message: "Must be a valid Refactor Games email" }),
-  password: z.string().min(5, "Password must be at least 5 characters"),
+  password: z.string().min(8, "Password must be at least 8 characters").regex(/\d/, "Password must contain at least one number"),
   confirmpassword: z.string(),
   code: z.string().min(1, "Admin code is required"),
 }).refine((data) => data.password === data.confirmpassword, {
