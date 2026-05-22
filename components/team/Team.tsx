@@ -24,8 +24,8 @@ export default function Team() {
           <ScrollAnimatedElement directionIn="right">
             <div className={styles.team_description}>
               <div className={styles.team_text}>
-                <p>{`The team at Refactor Games is made up of talent from Survios, OneTeam Partners,
-                  Wizards of the Coast, N3TWORK, and more. We're a crew of seasoned builders, operators,
+                <p>{`The team at Refactor Games is made up of talent from EA Sports, 2K Sports, Survios, OneTeam
+                  Partners, and more. We're a crew of seasoned builders, operators,
                   and engineers who've launched hit games, scaled platforms, and led iconic IP partnerships
                   across gaming and sports. With deep roots in game development, licensing, and live ops,
                   we're focused on building the next generation of sports games.`}
