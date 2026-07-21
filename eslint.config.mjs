@@ -1,24 +1,20 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
+    // "Never lint anything from these paths, replacing the traditional .eslintignore file"
     ignores: [
-      "app/generated/**", // prisma generated files, no ts
-      "node_modules/**", // third party dependencies
-      ".next/**", // next's build output object
-      "out/**" // static export output (not using, but just in case)
+      "node_modules/**", // third party dependencies we didn't write/don't control
+      ".next/**", // next's build output folder; generated code, regenerated on every build
+      "out/**", // output directory from next export (static site export) - not using this though, but just in case
+      "build/**", // generic build output file; harmless to include
+      "next-env.d.ts", // TS declaration file Next.js auto-generates and manages
+      "app/generated/**", // prisma generated files, no ts there to lint
     ]
-  }
+  },
+  ...nextVitals,
+  ...nextTypescript,
 ];
 
 export default eslintConfig;
