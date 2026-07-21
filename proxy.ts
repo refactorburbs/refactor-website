@@ -3,20 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { decrypt, updateSession } from "@/lib/session";
 import { cookies } from "next/headers";
 
-const protectedRoutes = [
-  "/admin",
-  "/admin/applications",
-  "/admin/games",
-  "/admin/games/add",
-  "/admin/games/edit/*",
-  "admin/jobs",
-  "/admin/jobs/add",
-  "/admin/jobs/edit/*",
-]
-
-export default async function middleware(req: NextRequest) {
+export default async function proxy(req: NextRequest) {
   const path = req.nextUrl.pathname;
-  const isProtectedRoute = protectedRoutes.includes(path);
+  const isProtectedRoute = path.startsWith("/admin");
 
   if (!isProtectedRoute) {
     return NextResponse.next();
@@ -47,19 +36,10 @@ export default async function middleware(req: NextRequest) {
     }
   }
 
-  // Redirect to /admin if the user is authenticated and tries to access auth pages
-  if (
-    session?.userId &&
-    !req.nextUrl.pathname.startsWith("/admin") &&
-    (req.nextUrl.pathname === "/login" || req.nextUrl.pathname === "/sign-up")
-  ) {
-    return NextResponse.redirect(new URL("/admin", req.nextUrl));
-  }
-
   return NextResponse.next();
 }
 
 // Routes Middleware should run on
 export const config = {
-  matcher: ["/admin", "/login", "/sign-up"]
+  matcher: ["/admin/:path*", "/login", "/sign-up"]
 }
