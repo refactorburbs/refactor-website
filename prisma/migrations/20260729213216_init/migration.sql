@@ -1,5 +1,8 @@
+-- CreateEnum
+CREATE TYPE "AdminAction" AS ENUM ('ADDED_ADMIN', 'REMOVED_ADMIN', 'VERIFIED_ACCOUNT', 'STARRED_APPLICANT', 'DELETED_APPLICANT', 'ARCHIVED_APPLICANT', 'CREATED_JOB_OPENING', 'UNLISTED_JOB_OPENING', 'EDITED_JOB_OPENING', 'DELETED_JOB_OPENING', 'ADDED_GAME', 'UPDATED_GAME');
+
 -- CreateTable
-CREATE TABLE "SteamGame" (
+CREATE TABLE "steam_game" (
     "id" SERIAL NOT NULL,
     "steamId" INTEGER NOT NULL,
     "name" TEXT NOT NULL,
@@ -7,11 +10,11 @@ CREATE TABLE "SteamGame" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "SteamGame_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "steam_game_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "JobPosting" (
+CREATE TABLE "job_posting" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
     "summary" TEXT NOT NULL,
@@ -25,11 +28,11 @@ CREATE TABLE "JobPosting" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "delisted" BOOLEAN NOT NULL DEFAULT false,
 
-    CONSTRAINT "JobPosting_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "job_posting_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "JobApplication" (
+CREATE TABLE "job_application" (
     "id" SERIAL NOT NULL,
     "firstName" TEXT NOT NULL,
     "lastName" TEXT NOT NULL,
@@ -46,7 +49,18 @@ CREATE TABLE "JobApplication" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "JobApplication_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "job_application_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "recent_activity" (
+    "id" SERIAL NOT NULL,
+    "userId" TEXT NOT NULL,
+    "action" "AdminAction" NOT NULL,
+    "specifics" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "recent_activity_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -108,10 +122,10 @@ CREATE TABLE "verification" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "SteamGame_steamId_key" ON "SteamGame"("steamId");
+CREATE UNIQUE INDEX "steam_game_steamId_key" ON "steam_game"("steamId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "JobApplication_email_key" ON "JobApplication"("email");
+CREATE UNIQUE INDEX "job_application_email_key" ON "job_application"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
@@ -129,7 +143,10 @@ CREATE INDEX "account_userId_idx" ON "account"("userId");
 CREATE INDEX "verification_identifier_idx" ON "verification"("identifier");
 
 -- AddForeignKey
-ALTER TABLE "JobApplication" ADD CONSTRAINT "JobApplication_jobPostingId_fkey" FOREIGN KEY ("jobPostingId") REFERENCES "JobPosting"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "job_application" ADD CONSTRAINT "job_application_jobPostingId_fkey" FOREIGN KEY ("jobPostingId") REFERENCES "job_posting"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "recent_activity" ADD CONSTRAINT "recent_activity_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "session" ADD CONSTRAINT "session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE CASCADE ON UPDATE CASCADE;

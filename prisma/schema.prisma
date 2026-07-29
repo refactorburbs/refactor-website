@@ -50,6 +50,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Enums
+enum AdminAction {
+  ADDED_ADMIN
+  REMOVED_ADMIN
+  VERIFIED_ACCOUNT
+  STARRED_APPLICANT
+  DELETED_APPLICANT
+  ARCHIVED_APPLICANT
+  CREATED_JOB_OPENING
+  UNLISTED_JOB_OPENING
+  EDITED_JOB_OPENING
+  DELETED_JOB_OPENING
+  ADDED_GAME
+  UPDATED_GAME
+}
+
 model SteamGame {
   id        Int      @id @default(autoincrement())
   steamId   Int      @unique
@@ -57,6 +73,8 @@ model SteamGame {
   storePage String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("steam_game")
 }
 
 model JobPosting {
@@ -73,6 +91,8 @@ model JobPosting {
   updatedAt        DateTime         @updatedAt
   delisted         Boolean          @default(false)
   JobApplication   JobApplication[] // Virtual relation field for FK in JobApplication
+
+  @@map("job_posting")
 }
 
 model JobApplication {
@@ -92,18 +112,32 @@ model JobApplication {
   jobPosting   JobPosting @relation(fields: [jobPostingId], references: [id])
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
+
+  @@map("job_application")
+}
+
+model RecentActivity {
+  id           Int        @id @default(autoincrement())
+  userId       String
+  user         User       @relation(fields: [userId], references: [id])
+  action       AdminAction
+  specifics    String?    // example: "John Doe" to concat to the action "STARRED_APPLICANT"
+  createdAt    DateTime   @default(now())
+
+  @@map("recent_activity")
 }
 
 model User {
-  id            String    @id
-  name          String
-  email         String
-  emailVerified Boolean   @default(false)
-  image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  sessions      Session[]
-  accounts      Account[]
+  id              String    @id
+  name            String
+  email           String
+  emailVerified   Boolean   @default(false)
+  image           String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  sessions        Session[]
+  accounts        Account[]
+  recentActivity  RecentActivity[]
 
   @@unique([email])
   @@map("user")
