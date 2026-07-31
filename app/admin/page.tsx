@@ -7,7 +7,7 @@ export default function AdminPage() {
   const { github, prisma, pinata, emailjs } = getCredentials();
   return (
     <div>
-      <div className={styles.written_content}>
+      {/* <div className={styles.written_content}>
         <h2>Website Info</h2>
         <p>The Refactor Website is located on
           <a
@@ -103,7 +103,7 @@ export default function AdminPage() {
           email={prisma.email}
           password={prisma.password}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
