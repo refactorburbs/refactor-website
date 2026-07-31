@@ -1,4 +1,5 @@
 import { getCredentials } from "@/lib/utils/general.utils";
+import SummaryCard from "@/components/admin/dashboard/SummaryCard";
 import CredentialCard from "./CredentialCard";
 
 import styles from "./page.module.css";
@@ -7,6 +8,7 @@ export default function AdminPage() {
   const { github, prisma, pinata, emailjs } = getCredentials();
   return (
     <div>
+      {/* <SummaryCard /> */}
       {/* <div className={styles.written_content}>
         <h2>Website Info</h2>
         <p>The Refactor Website is located on

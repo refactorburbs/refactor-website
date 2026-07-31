@@ -3,12 +3,7 @@
   background-color: #050D17;
 }
 
-.refactor_logo {
-  width: 150px;
-  height: auto;
-}
-
-.dashboard {
+.admin_content {
   width: 100%;
   padding: 1rem 3rem;
   display: flex;
@@ -16,7 +11,7 @@
   justify-content: space-between;
 }
 
-.dashboard_header {
+.admin_header {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -33,7 +28,7 @@
   font-size: medium;
 }
 
-.main_content_wrapper {
+.admin_tab_content {
   margin-top: 2rem;
   /* padding: 2rem 0rem; */
   /* background-color: #0D1420; */
@@ -58,8 +53,5 @@
 @media screen and (max-width: 1024px) {
   .dashboard {
     padding: 1rem;
-  }
-  .dashboard_header {
-    margin-left: 2rem;
   }
 }

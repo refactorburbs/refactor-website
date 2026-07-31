@@ -17,9 +17,9 @@ export default async function AdminLayout({
   return (
     <div className={styles.admin_layout_page}>
       <DesktopNav />
-      <div className={styles.dashboard}>
-        <MobileNav />
-        <header className={styles.dashboard_header}>
+      <div className={styles.admin_content}>
+        <header className={styles.admin_header}>
+          <MobileNav />
           <h2>ADMIN DASHBOARD</h2>
           <div className={styles.user_info}>
             <button className={styles.logout_button} onClick={logout}>
@@ -27,11 +27,10 @@ export default async function AdminLayout({
             </button>
           </div>
         </header>
-        <main className={styles.main_content_wrapper}>
+        <main className={styles.admin_tab_content}>
           {children}
         </main>
       </div>
-
     </div>
   );
 }
