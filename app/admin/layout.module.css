@@ -1,6 +1,7 @@
 .admin_layout_page {
   display: flex;
   background-color: #050D17;
+  min-height: 100vh;
 }
 
 .admin_content {

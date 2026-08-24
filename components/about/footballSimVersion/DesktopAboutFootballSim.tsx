@@ -1,15 +1,15 @@
-import AnimatedHeader from "../AnimatedHeader";
-import ScrollAnimatedElement from "../ScrollAnimatedElement";
+import AnimatedHeader from "../../AnimatedHeader";
+import ScrollAnimatedElement from "../../ScrollAnimatedElement";
 import { ASSETS } from "@/lib/constants/assets.constants";
 import Image from "next/image";
 
-import styles from "./about.module.css";
+import styles from "./footballSimVersion.module.css";
 const a16z = ASSETS.IMAGES.ABOUT.a16zLogo;
 
-export default function MobileAbout () {
+export default function DesktopAboutFootballSim () {
   return (
-    <div className={styles.mobile_about}>
-      <AnimatedHeader title="About Us" />
+    <div className={styles.desktop_about}>
+      <AnimatedHeader title="About Us" rootMargin="0px 0px -400px 0px"/>
 
         <div className={styles.building_text_positioner}>
           <ScrollAnimatedElement
@@ -17,7 +17,7 @@ export default function MobileAbout () {
             thresholdIn={0.8}
             directionOut="up"
             thresholdOut={0.2}
-            rootMargin="0px 0px -100px 0px"
+            rootMargin="0px 0px -200px 0px"
           >
             <p className={`gradient-text-multiline ${styles.building_text}`}>
               BUILDING <br/>
@@ -34,7 +34,7 @@ export default function MobileAbout () {
             thresholdIn={0.7}
             directionOut="up"
             thresholdOut={0.3}
-            rootMargin="0px 0px -50px 0px"
+            rootMargin="0px 0px -100px 0px"
           >
             <div className={`${styles.logos}`}>
               <span>BACKED BY THE BEST:</span>
