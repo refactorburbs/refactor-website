@@ -7,19 +7,45 @@ import Image from "next/image";
 import ScrollAnimatedElement from "../ScrollAnimatedElement";
 
 import styles from "./team.module.css";
+import PaginationButtons from "../PaginationButtons";
 
-const teamSmiling = ASSETS.IMAGES.TEAM.smiling;
-const teamSilly = ASSETS.IMAGES.TEAM.silly;
+const carouselImages = [
+  ASSETS.IMAGES.TEAM.smiling,
+  ASSETS.IMAGES.TEAM.silly,
+  ASSETS.IMAGES.TEAM.refactor00,
+  ASSETS.IMAGES.TEAM.refactor01,
+  ASSETS.IMAGES.TEAM.refactor02,
+  ASSETS.IMAGES.TEAM.refactor03,
+  ASSETS.IMAGES.TEAM.refactor04,
+]
+
+const teamHeroImage = ASSETS.IMAGES.TEAM.fifaTeam;
 
 export default function Team() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const totalSlides = carouselImages.length;
+  const canGoLeft = currentImageIndex > 0;
+  const canGoRight = currentImageIndex < totalSlides - 1;
+
+    const handlePrevious = () => {
+    if (canGoLeft) {
+      setCurrentImageIndex(currentImageIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (canGoRight) {
+      setCurrentImageIndex(currentImageIndex + 1);
+    }
+  };
+
 
   return (
     <section id="team" className={styles.team}>
       <div className={styles.offset_divider}>
         <Divider title="Team" isUnderlined={true} isSlanted={true}/>
       </div>
-      <div className="section-content-wrapper">
+      <div className={`${styles.team_section} section-content-wrapper`}>
         <div className={styles.team_content}>
           <ScrollAnimatedElement directionIn="right">
             <div className={styles.team_description}>
@@ -46,25 +72,33 @@ export default function Team() {
           </ScrollAnimatedElement>
 
           <ScrollAnimatedElement directionIn="left">
-            <a
-              className={`gradient-container ${styles.team_image}`}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              href={teamSmiling}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <div className={styles.image_carousel}>
               <Image
-                src={isHovered ? teamSilly : teamSmiling}
-                alt={isHovered ? "Refactor Games Team Photo - Silly" : "Refactor Games Team Photo - Smiling"}
+                src={carouselImages[currentImageIndex]}
+                alt={`Refactor team image ${currentImageIndex + 1}`}
                 width={2560}
                 height={1920}
                 className={styles.responsive_photo}
               />
-            </a>
+              <PaginationButtons
+                canGoLeft={canGoLeft}
+                canGoRight={canGoRight}
+                handlePrevious={handlePrevious}
+                handleNext={handleNext}
+                currentIndex={currentImageIndex}
+                totalItems={totalSlides}
+              />
+            </div>
           </ScrollAnimatedElement>
         </div>
         <div className="thin-divider" />
+        <Image
+          src={teamHeroImage}
+          alt={`FIFA Mixed Team`}
+          width={1500}
+          height={882}
+          className={styles.fifa_team_photo}
+        />
       </div>
     </section>
   );

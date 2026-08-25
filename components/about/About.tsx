@@ -30,7 +30,13 @@ export default function About () {
         </div>
 
         <div className={styles.building_text_positioner}>
-          <ScrollAnimatedElement
+          <p className={`gradient-text-multiline ${styles.building_text}`}>
+            BUILDING <br/>
+            THE FUTURE <br/>
+            OF SPORTS <br/>
+            VIDEO GAMES
+          </p>
+          {/* <ScrollAnimatedElement
             directionIn="up"
             thresholdIn={0.1}
             directionOut="up"
@@ -43,7 +49,7 @@ export default function About () {
               OF SPORTS <br/>
               VIDEO GAMES
             </p>
-          </ScrollAnimatedElement>
+          </ScrollAnimatedElement> */}
         </div>
       </div>
     </section>

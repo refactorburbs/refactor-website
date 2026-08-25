@@ -13,6 +13,7 @@ export const ASSETS = {
       spainTrio: "https://refactor-games.github.io/cdn/images/spain-trio.webp"
     },
     TEAM: {
+      fifaTeam: "https://refactor-games.github.io/cdn/images/team-group.webp",
       smiling: "https://refactor-games.github.io/cdn/images/refactor-team-smiling.webp",
       silly: "https://refactor-games.github.io/cdn/images/refactor-team-silly.webp",
       refactor00: "https://refactor-games.github.io/cdn/images/refactor_00.webp",
