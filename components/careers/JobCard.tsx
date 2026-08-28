@@ -18,7 +18,7 @@ const truncateSummary = (summary: string): string => {
 
 export default function JobCard({ job }: JobCardProps) {
   return (
-    <ScrollAnimatedElement directionIn="up" directionOut="up" thresholdIn={0.5} thresholdOut={0.5}>
+    <ScrollAnimatedElement directionIn="up" directionOut="up" thresholdIn={0.25} thresholdOut={0.75}>
       <div className={`gradient-container ${styles.job_card}`}>
         <div className={styles.job_summary}>
           <h2>{job.title}</h2>

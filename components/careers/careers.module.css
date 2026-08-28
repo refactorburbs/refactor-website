@@ -5,6 +5,7 @@
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
+  overflow: hidden;
 }
 
 .gradient_drop {
@@ -23,6 +24,8 @@
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  z-index: 1;
+  align-self: flex-end;
 }
 
 .careers_subtext {
@@ -30,68 +33,45 @@
   text-align: center;
 }
 
-.football_head {
+.fifa_ball {
   position: absolute;
-  right: 0;
+  right: 2vw;
   bottom: 0;
-  width: 350px;
+  width: 18vw;
   pointer-events: all;
 }
 
-.football_head img,
-.football_helmet img {
+.fifa_ball img,
+.neymar img {
   width: 100%;
   height: auto;
 }
 
-.football_helmet {
+.neymar {
   position: absolute;
-  right: 175px;
-  bottom: 65px;
-  width: 174px;
-  transform: translate(-72vw, -15vw);
-  /* animation: float 3s ease-in-out infinite; */
+  top: 15vh;
+  width: 45vw;
+  height: auto;
+  z-index: 0;
 }
 
-/* @keyframes float {
-  0% {
-    transform: translate(-72vw, -15vw) translateY(0px);
-  }
-  50% {
-    transform: translate(-72vw, -15vw) translateY(30px);
-  }
-  100% {
-    transform: translate(-72vw, -15vw) translateY(0px);
-  }
-} */
-
-@media screen and (max-width: 1400px) {
-  .football_head {
-    width: 200px;
-  }
-  .football_helmet {
-    width: 99px;
-    right: 100px;
-    bottom: 35px;
-  }
-}
 
 @media screen and (max-width: 1024px) {
   .gradient_drop {
     height: 100px;
     top: -30px;
   }
-  .football_helmet {
-    right: 180px;
-  }
 }
 
 @media screen and (max-width: 700px) {
+  .careers_content {
+    align-self: center;
+  }
   .careers_subtext {
     font-size: var(--small);
   }
-  .football_head,
-  .football_helmet {
+  .fifa_ball,
+  .neymar {
     display: none;
   }
 }

@@ -25,6 +25,8 @@ export const ASSETS = {
     CAREERS: {
       footballsimHead: "https://refactor-games.github.io/cdn/images/football-sim-head.webp",
       footballsimHelmet: "https://refactor-games.github.io/cdn/images/football-sim-helmet.webp",
+      neymar: "https://refactor-games.github.io/cdn/images/neymar.webp",
+      trionda: "https://refactor-games.github.io/cdn/images/trionda.webp"
     },
     SOCIAL_MEDIA: {
       standardSize: "https://refactor-games.github.io/cdn/images/social-image-1200x630.webp",
