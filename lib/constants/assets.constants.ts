@@ -5,6 +5,7 @@ export const ASSETS = {
   VIDEOS: {
     hero: "https://refactor-games.github.io/cdn/videos/hero-bg-vid.webm",
     preloader: "https://refactor-games.github.io/cdn/videos/preloader-vid.webm",
+    fifaTrailer: "https://refactor-games.github.io/cdn/videos/fifa-wc-launch-edition.webm"
   },
   IMAGES: {
     ABOUT: {
@@ -31,6 +32,11 @@ export const ASSETS = {
     SOCIAL_MEDIA: {
       standardSize: "https://refactor-games.github.io/cdn/images/social-image-1200x630.webp",
       largeSize: "https://refactor-games.github.io/cdn/images/social-image-1920x1080.webp"
+    },
+    GAMES: {
+      FIFA: {
+        headerImage: "https://refactor-games.github.io/cdn/images/fifa_launch_edition 1.webp",
+      }
     }
   },
 } as const;

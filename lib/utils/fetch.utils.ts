@@ -4,6 +4,7 @@ import {
 } from "../constants/api.constants";
 import prisma from "../prisma";
 import {
+  GAME_CARD_SOURCE,
   SteamGameData,
   SteamGameResponseData,
   SteamGameReviewSummary
@@ -27,7 +28,7 @@ import { forceHttps, scrubHTMLEncodedString } from "./general.utils";
 export async function fetchSteamGames(): Promise<SteamGameData[]> {
   const steamGamesData = await prisma.steamGame.findMany();
 
-  const results: SteamGameData[] = await Promise.all(
+  const results = await Promise.all(
     steamGamesData.map(async (game) => {
       try {
         const response = await fetch(`${STEAM_DETAILS_BASE_URL}${game.steamId}`, {
@@ -51,14 +52,17 @@ export async function fetchSteamGames(): Promise<SteamGameData[]> {
           shortDescription: data[game.steamId].data.short_description,
           longDescription: scrubHTMLEncodedString(data[game.steamId].data.detailed_description),
           reviewSummary,
+          source: GAME_CARD_SOURCE.STEAM
         };
       } catch (error) {
         console.error(`Failed to fetch data for ${game.name}:`, error);
-        return game;
+        // If we can't fetch it, don't render it.
+        return null;
       }
     })
   )
-  return results;
+
+  return results.filter((game) => game !== null);
 }
 
 /**

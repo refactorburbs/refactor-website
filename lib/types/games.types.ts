@@ -1,6 +1,12 @@
-export type GameData = SteamGameData; // | whatever else in the future if we have non-steam games
+export type GameData = GameCardData | SteamGameData;
 
-export interface SteamGameData {
+export const GAME_CARD_SOURCE = {
+  GENERIC : "GENERIC",
+  STEAM : "STEAM"
+} as const;
+
+export interface GameCardData {
+  source: typeof GAME_CARD_SOURCE.GENERIC,
   id: number;
   name: string;
   trailer?: string;
@@ -9,6 +15,10 @@ export interface SteamGameData {
   tags?: string[];
   shortDescription?: string;
   longDescription?: string;
+}
+
+export interface SteamGameData extends Omit<GameCardData, "source"> {
+  source: typeof GAME_CARD_SOURCE.STEAM;
   reviewSummary?: SteamGameReviewSummary;
 }
 

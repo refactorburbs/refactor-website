@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { GameData } from "@/lib/types/games.types";
+import { GAME_CARD_SOURCE, GameData } from "@/lib/types/games.types";
 import ScrollAnimatedElement from "../ScrollAnimatedElement";
 import SteamButton from "./SteamButton";
-import GameCardPopupModal from "./GameCardPopupModal";
+import SteamCardPopupModal from "./SteamCardPopupModal";
 import Image from "next/image";
 
 import styles from "./gameCard.module.css";
+import GameCardPopupModal from "./GameCardPopupModal";
+
+const FIFA_GAME_ID = 561182;
 
 export default function GameCard({ game }: { game: GameData }) {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -31,18 +34,26 @@ export default function GameCard({ game }: { game: GameData }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <ScrollAnimatedElement
-        directionIn="up"
-        directionOut="up"
-      >
+      <ScrollAnimatedElement directionIn="up" directionOut="up">
         <div className={`gradient-container ${styles.game_card}`}>
           <div className={styles.game_card_image_wrapper}>
-            <Image
-              src={game.headerImage || "/image-not-found.png"}
-              alt={`${game.name} Header`}
-              width={460}
-              height={215}
-            />
+            {/* Special case for FIFA Game with bleeding/expanded header image */}
+            {game.id === FIFA_GAME_ID ?
+              <Image
+                src={game.headerImage || "/image-not-found.png"}
+                alt={`${game.name} Header`}
+                width={1215}
+                height={788}
+                className={styles.fifa_game_header_image}
+              />
+              :
+              <Image
+                src={game.headerImage || "/image-not-found.png"}
+                alt={`${game.name} Header`}
+                width={460}
+                height={215}
+              />
+            }
           </div>
           <div className={styles.game_card_content}>
             <div className={styles.header_description}>
@@ -51,11 +62,14 @@ export default function GameCard({ game }: { game: GameData }) {
                 {game.shortDescription}
               </p>
             </div>
-            <SteamButton storePage={game.storePage}/>
+            {game.source === GAME_CARD_SOURCE.STEAM && (
+              <SteamButton storePage={game.storePage}/>
+            )}
           </div>
         </div>
       </ScrollAnimatedElement>
-      <GameCardPopupModal isPopupVisible={isPopupVisible} game={game}/>
+      {game.source === GAME_CARD_SOURCE.STEAM && <SteamCardPopupModal isPopupVisible={isPopupVisible} game={game}/>}
+      {game.source === GAME_CARD_SOURCE.GENERIC && <GameCardPopupModal isPopupVisible={isPopupVisible} game={game}/>}
     </div>
   );
 }
