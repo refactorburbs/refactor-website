@@ -3,7 +3,7 @@
 
 export const ASSETS = {
   VIDEOS: {
-    hero: "https://refactor-games.github.io/cdn/videos/hero-bg-vid.webm",
+    hero: "https://refactor-games.github.io/cdn/videos/hero-bg-vid-new.webm",
     preloader: "https://refactor-games.github.io/cdn/videos/preloader-vid.webm",
     fifaTrailer: "https://refactor-games.github.io/cdn/videos/fifa-wc-launch-edition.webm"
   },
