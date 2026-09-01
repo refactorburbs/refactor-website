@@ -36,6 +36,9 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "app/_admin/**/*",
+    "app/actions/auth.actions.ts",
+    "lib/dal.ts"
   ]
 }
