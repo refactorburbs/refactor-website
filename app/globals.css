@@ -134,7 +134,7 @@ input {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  min-height: 100dvh;
+  /* min-height: 100dvh; */
 }
 
 .thin-divider {
