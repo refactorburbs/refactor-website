@@ -1,5 +1,5 @@
 export default function SignUp() {
-  return <div>Auth temporarily disabled.</div>;
+  return <div>Auth is temporarily disabled.</div>;
 }
 
 // "use client";
