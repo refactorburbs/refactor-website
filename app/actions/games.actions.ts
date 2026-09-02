@@ -1,7 +1,9 @@
 "use server";
 
+import { GENERIC_GAME_CARDS } from "@/lib/constants/games.constants";
 import prisma from "@/lib/prisma";
 import { GameFormState } from "@/lib/types/forms.types";
+import { GameData } from "@/lib/types/games.types";
 import { fetchSteamGames } from "@/lib/utils/fetch.utils";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -20,11 +22,12 @@ const editGameSchema = z.object({
 })
 // -----------------------------------------------------------------------------------
 
-export async function fetchAllGameCards() {
+export async function fetchAllGameCards(): Promise<GameData[]> {
   // If we ever have more than just Steam games, we can modify this function
   // to fetch from multiple sources and return a different response array.
   const steamGames = await fetchSteamGames();
-  return steamGames;
+  const genericGames = GENERIC_GAME_CARDS;
+  return [...genericGames, ...steamGames];
 }
 
 // Get a single game (for editing)

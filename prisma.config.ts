@@ -1,6 +1,6 @@
 import path from "node:path";
-import { defineConfig, env } from 'prisma/config';
 import "dotenv/config";
+import { defineConfig, env } from 'prisma/config';
 
 export default defineConfig({
   schema: path.join("prisma", "schema.prisma"),
@@ -12,6 +12,6 @@ export default defineConfig({
     studio: true,
   },
   datasource: {
-    url: env('DATABASE_URL'),
+    url: env("DIRECT_DATABASE_URL"),
   },
 });

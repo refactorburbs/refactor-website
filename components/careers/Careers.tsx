@@ -7,11 +7,12 @@ import JobCardList from "./JobCardList";
 
 import styles from "./careers.module.css";
 
-const footballSimHead = ASSETS.IMAGES.CAREERS.footballsimHead;
-const footballSimHelmet = ASSETS.IMAGES.CAREERS.footballsimHelmet;
+const neymar = ASSETS.IMAGES.CAREERS.neymar;
+const soccerBall = ASSETS.IMAGES.CAREERS.trionda;
 
 export default async function Careers() {
   const jobPosts = await getAllJobPostings(false);
+
   return (
     <section className={styles.careers}>
       <div className={styles.gradient_drop} />
@@ -28,25 +29,23 @@ export default async function Careers() {
         <div className="thin-divider" />
         <div className={styles.spacer} />
       </div>
-      <ScrollAnimatedElement directionIn="left" thresholdIn={0.1} once={true}>
-        <div className={styles.football_head}>
-          <Image
-            src={footballSimHead}
-            alt="Football Simulator Character Head"
-            width={995}
-            height={667}
-          />
-        </div>
-      </ScrollAnimatedElement>
 
-      <div className={`${styles.football_helmet}`}>
-        <ScrollAnimatedElement directionIn="up" directionOut="up" thresholdIn={0.75} thresholdOut={0.25}>
+      <div className={styles.fifa_ball}>
+        <Image
+          src={soccerBall}
+          alt="FIFA Ball"
+          width={707}
+          height={882}
+        />
+      </div>
+
+      <div className={`${styles.neymar}`}>
+        <ScrollAnimatedElement directionIn="up" directionOut="up" thresholdIn={0.25} thresholdOut={0.75}>
           <Image
-            src={footballSimHelmet}
-            alt="Football Simulator Character Helmet"
-            width={496}
-            height={494}
-            className="football-helmet"
+            src={neymar}
+            alt="Neymar making a heart gesture"
+            width={698}
+            height={882}
           />
         </ScrollAnimatedElement>
       </div>

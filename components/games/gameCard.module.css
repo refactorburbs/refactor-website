@@ -11,6 +11,11 @@
   height: max-content;
   width: max-content;
   border-bottom: 1px solid var(--color-secondary);
+  max-width: 460px;
+  max-height: 215px;
+  position: relative;
+  overflow: hidden;   /* clips anything object-fit: cover pushes outside the box */
+  flex-shrink: 0;
 }
 
 .game_card_content {
@@ -33,6 +38,11 @@
 
 .short_description {
   font-size: var(--small);
+}
+
+.fifa_game_header_image {
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 1024px) {

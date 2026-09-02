@@ -7,28 +7,12 @@
 }
 
 .job_card_list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr); /* always reserves 3 rows even if other pages have less job cards to render */
   gap: 1rem;
+  height: 600px;
   margin-top: 1.5rem;
   width: 60%;
-}
-
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.pagination_button {
-  padding: 0 1rem;
-}
-
-.disabled_button {
-  padding: 0 1rem;
-  opacity: 0.2;
-  pointer-events: none;
 }
 
 @media screen and (max-width: 1400px) {

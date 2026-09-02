@@ -1,0 +1,16 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pagination_button {
+  padding: 0 1rem;
+}
+
+.disabled_button {
+  padding: 0 1rem;
+  opacity: 0.2;
+  pointer-events: none;
+}

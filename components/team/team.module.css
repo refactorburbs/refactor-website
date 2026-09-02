@@ -13,6 +13,10 @@
   width: 100%;
 }
 
+.team_section {
+  align-items: center;
+}
+
 .team_content {
   margin-top: 2rem;
   display: grid;
@@ -51,22 +55,25 @@
   border: none;
 }
 
-.team_image {
-  display: inherit;
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  padding: 1rem;
-  cursor: pointer;
-  height: 700px;
+.image_carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  height: 100%;
 }
 
 .responsive_photo {
   width: 100%;
-  height: 100%;
+  height: clamp(200px, 30vw, 700px);
   object-fit: cover; /* Maintains aspect ratio while filling container */
   object-position: center;
   display: block;
+}
+
+.fifa_team_photo {
+  width: 85%;
+  height: auto;
 }
 
 @media screen and (max-width: 1920px) {
@@ -74,8 +81,7 @@
     width: 448px;
     height: 252px;
   }
-  .team_content,
-  .team_image {
+  .team_content {
     height: 600px;
   }
 }
@@ -93,9 +99,6 @@
   }
   .team_text {
     width: 50%;
-  }
-  .team_image {
-    height: 550px;
   }
 }
 
@@ -118,18 +121,12 @@
       text-align: center;
     }
   }
-  .team_image {
-    height: 50vw;
-  }
 }
 
 @media screen and (max-width: 500px) {
   .team_content {
     margin-top: 1rem;
     gap: 1rem;
-  }
-  .team_image {
-    padding: 0.5rem;
   }
   .team_text p {
     font-size: medium;

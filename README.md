@@ -30,7 +30,7 @@ This repository contains the source code for the Refactor Games company website 
 
 Before you begin, make sure you have these installed on your computer:
 
-- **[Node.js v22](https://nodejs.org/)** - JavaScript runtime
+- **[Node.js v24](https://nodejs.org/en/download)** - JavaScript runtime
 - **[Git](https://git-scm.com/downloads)** - Version control
 - **[NVM](https://github.com/nvm-sh/nvm)** (recommended) - Node version manager
 - **Code Editor** like [VS Code](https://code.visualstudio.com/)
@@ -144,7 +144,7 @@ This opens a web interface at `http://localhost:5555` where you can view, add, e
 <br>
 (Rare Circumstance) If you need to generate new keys or establish a new database connection, login with your credentials.
 - **Website**: [prisma.io](https://prisma.io)
-- **Email**: See Admin Dashboard 
+- **Email**: See Admin Dashboard
 - **Password**: See Admin Dashboard
 
 ### Making Database Changes
@@ -165,8 +165,8 @@ We use **Pinata** to store uploaded files (like resumes from job applications) a
 
 **Pinata Account Credentials:**
 - **Website**: [pinata.cloud](https://pinata.cloud)
-- **Email**: See Admin Dashboard 
-- **Password**: See Admin Dashboard 
+- **Email**: See Admin Dashboard
+- **Password**: See Admin Dashboard
 
 ### How It Works
 
@@ -241,7 +241,7 @@ Company emails (@refactorgames.com) are handled through **Google Workspace** and
 The following secret keys need to be configured in your `.env` file and in Vercel:
 
 - Database connection strings (Prisma)
-- File storage keys (Pinata)  
+- File storage keys (Pinata)
 - Email service keys (EmailJS)
 - Any API keys for third-party services
 

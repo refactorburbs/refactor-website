@@ -1,12 +1,11 @@
 import { ASSETS } from "@/lib/constants/assets.constants";
-import DesktopAbout from "./DesktopAbout";
-import MobileAbout from "./MobileAbout";
 import ScrollAnimatedElement from "../ScrollAnimatedElement";
 import Image from "next/image";
 
 import styles from "./about.module.css";
+import AnimatedHeader from "../AnimatedHeader";
 
-const footballsimCharacters = ASSETS.IMAGES.ABOUT.footballsimCharacters;
+const spainTrio = ASSETS.IMAGES.ABOUT.spainTrio;
 
 export default function About () {
   return (
@@ -16,19 +15,41 @@ export default function About () {
       <div className={`section-content-wrapper ${styles.content_wrapper}`}>
         <div className="thin-divider" />
 
-        <DesktopAbout />
-        <MobileAbout />
+        <AnimatedHeader title="About Us" rootMargin="0px 0px -400px 0px"/>
 
         <div className={styles.image_positioner}>
-          <ScrollAnimatedElement directionIn="up" directionOut="up" thresholdIn={0.2} thresholdOut={0.7}>
+          <ScrollAnimatedElement directionIn="up" directionOut="up" thresholdIn={0.2} thresholdOut={0.8}>
             <Image
-              src={footballsimCharacters}
-              alt="Football Simulator character closeups"
-              width={3840}
-              height={2160}
+              src={spainTrio}
+              alt="FIFA Spain Trio: Yamal, Rodri, and Pedri"
+              width={3288}
+              height={3662}
               className={styles.football_character_closeup}
             />
           </ScrollAnimatedElement>
+        </div>
+
+        <div className={styles.building_text_positioner}>
+          <p className={`gradient-text-multiline ${styles.building_text}`}>
+            BUILDING <br/>
+            THE FUTURE <br/>
+            OF SPORTS <br/>
+            VIDEO GAMES
+          </p>
+          {/* <ScrollAnimatedElement
+            directionIn="up"
+            thresholdIn={0.1}
+            directionOut="up"
+            thresholdOut={0.9}
+            rootMargin="0px 0px -200px 0px"
+          >
+            <p className={`gradient-text-multiline ${styles.building_text}`}>
+              BUILDING <br/>
+              THE FUTURE <br/>
+              OF SPORTS <br/>
+              VIDEO GAMES
+            </p>
+          </ScrollAnimatedElement> */}
         </div>
       </div>
     </section>

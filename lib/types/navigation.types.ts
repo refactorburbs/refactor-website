@@ -1,13 +1,13 @@
+import { ReactNode } from "react";
+
 export type HashRoute = `#${string}`;
 
-export interface NavRoute {
+export interface BaseNavItem<Href extends string = string> {
+  id: string;
   title: string;
-  href: HashRoute;
-  icon?: string;
+  href: Href;
+  icon?: ReactNode;
 }
 
-export interface AdminNavItem {
-  id: string;
-  text: string;
-  href: string;
-}
+export type NavRoute = BaseNavItem<HashRoute>;
+export type AdminNavItem = BaseNavItem<string>;

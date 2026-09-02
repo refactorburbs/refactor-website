@@ -5,6 +5,7 @@ import { JobPost } from "@/lib/types/jobs.types";
 import JobCard from "./JobCard";
 
 import styles from "./jobCardList.module.css";
+import PaginationButtons from "../PaginationButtons";
 
 interface JobCardListProps {
   jobPosts: JobPost[];
@@ -43,30 +44,14 @@ export default function JobCardList ({ jobPosts }: JobCardListProps) {
         ))}
       </div>
 
-      <div className={styles.pagination}>
-        <button
-          onClick={handlePrevious}
-          disabled={!canGoLeft}
-          className={canGoLeft ? styles.pagination_button : styles.disabled_button}
-          aria-label="Previous jobs"
-        >
-          <span>←</span>
-        </button>
-
-        <span className={styles.page_indicator}>
-          {currentPage + 1} / {totalPages}
-        </span>
-
-        <button
-          onClick={handleNext}
-          disabled={!canGoRight}
-          className={canGoRight ? styles.pagination_button : styles.disabled_button}
-          aria-label="Next jobs"
-        >
-          <span>→</span>
-        </button>
-
-      </div>
+      <PaginationButtons
+        canGoLeft={canGoLeft}
+        canGoRight={canGoRight}
+        handlePrevious={handlePrevious}
+        handleNext={handleNext}
+        currentIndex={currentPage}
+        totalItems={totalPages}
+      />
     </div>
   );
 }
