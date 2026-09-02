@@ -12,7 +12,7 @@ export default function About () {
     <section id="about" className={styles.about}>
       <div className={styles.gradient_drop} />
 
-      <div className={`section-content-wrapper ${styles.content_wrapper}`}>
+      <div className={`section-content-wrapper`}>
         <div className="thin-divider" />
 
         <AnimatedHeader title="About Us" rootMargin="0px 0px -400px 0px"/>
