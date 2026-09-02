@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import { ReactLenis } from "lenis/react";
@@ -13,6 +13,11 @@ import "lenis/dist/lenis.css"; // Smooth Scrolling package
 rather than importing and rendering directly, this client wrapper won't turn the whole app into a client-only app
 This is why we instantiate it here and not in page.tsx; anything that uses useLenis is a client only hook.
 */
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://refactorgames.com"),
