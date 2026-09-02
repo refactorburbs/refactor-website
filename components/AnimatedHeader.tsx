@@ -39,7 +39,7 @@ export default function AnimatedHeader({
         </div>
         <ScrollAnimatedElement
           once={animatesOnce}
-          thresholdIn={1}
+          thresholdIn={0.9}
           customAnimationInClass="animate-header-underline"
         >
           <div className="header-underline" />
@@ -51,13 +51,13 @@ export default function AnimatedHeader({
   return (
     <div className={styles.animated_header}>
       <div className={styles.header_title_wrapper}>
-        <ScrollAnimatedElement directionIn="up" thresholdIn={1} rootMargin={rootMargin}>
+        <ScrollAnimatedElement directionIn="up" thresholdIn={0.9} rootMargin={rootMargin}>
           <h2 className={!hasIcon ? styles.alt_header : ""}>
             {title}
           </h2>
         </ScrollAnimatedElement>
         {hasIcon && (
-          <ScrollAnimatedElement directionIn="up" thresholdIn={1} rootMargin={rootMargin}>
+          <ScrollAnimatedElement directionIn="up" thresholdIn={0.9} rootMargin={rootMargin}>
             <Image
               src={`/refactor-icon-${iconColor}.svg`}
               alt="Refactor Games Logo Icon"
